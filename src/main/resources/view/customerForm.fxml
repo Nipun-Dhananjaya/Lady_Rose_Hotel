@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="716.0" prefWidth="1362.4" style="-fx-border-color: brown;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lady_rose.controller.CustomerFormController">
+   <children>
+      <Label layoutX="545.0" layoutY="22.0" text="Customer Manage" textFill="#1148eb">
+         <font>
+            <Font name="Comic Sans MS Bold" size="25.0" />
+         </font>
+      </Label>
+      <Separator layoutX="48.0" layoutY="66.0" prefHeight="1.0" prefWidth="1275.0" />
+      <Label layoutX="180.0" layoutY="104.0" text="Customer Id          :" />
+      <TextField layoutX="170.0" layoutY="121.0" prefHeight="27.0" prefWidth="375.0" promptText="Customer Id" style="-fx-border-radius: 25; -fx-border-color: brown;" />
+      <Label layoutX="180.0" layoutY="166.0" text="Customer Name    :" />
+      <TextField layoutX="169.0" layoutY="183.0" prefHeight="27.0" prefWidth="375.0" promptText="Customer Name" style="-fx-border-radius: 25; -fx-border-color: brown;" />
+      <TextField layoutX="169.0" layoutY="242.0" prefHeight="27.0" prefWidth="375.0" promptText="NIC" style="-fx-border-radius: 25; -fx-border-color: brown;" />
+      <TextField layoutX="170.0" layoutY="302.0" prefHeight="27.0" prefWidth="375.0" promptText="Address" style="-fx-border-radius: 25; -fx-border-color: brown;" />
+      <TextField layoutX="752.0" layoutY="121.0" prefHeight="27.0" prefWidth="375.0" promptText="Email" style="-fx-border-radius: 25; -fx-border-color: brown;" />
+      <ComboBox layoutX="1001.0" layoutY="184.0" prefHeight="25.0" prefWidth="119.0" />
+      <Button layoutX="954.0" layoutY="185.0" mnemonicParsing="false" text="+">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <TextField layoutX="753.0" layoutY="184.0" prefHeight="27.0" prefWidth="190.0" promptText="Contact Number" style="-fx-border-radius: 25; -fx-border-color: brown;" />
+      <RadioButton layoutX="757.0" layoutY="247.0" mnemonicParsing="false" text="Male" />
+      <RadioButton layoutX="834.0" layoutY="247.0" mnemonicParsing="false" text="Female" />
+      <Label layoutX="180.0" layoutY="225.0" text="NIC" />
+      <Label layoutX="176.0" layoutY="285.0" text="Address                   :" />
+      <Label layoutX="758.0" layoutY="104.0" text="Email                        :" />
+      <Label layoutX="759.0" layoutY="168.0" text="Contact Number     :" />
+      <Label layoutX="756.0" layoutY="225.0" text="Gender                   :" />
+      <Label layoutX="969.0" layoutY="225.0" text="Category              :" />
+      <ChoiceBox fx:id="categoryChoiceBox" layoutX="969.0" layoutY="243.0" nodeOrientation="LEFT_TO_RIGHT" prefWidth="150.0" style="-fx-border-radius: 25;" />
+      <Label layoutX="280.0" layoutY="225.0" text=":" />
+      <Button layoutX="753.0" layoutY="294.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="125.0" style="-fx-background-color: blue;" text="ADD" textFill="WHITE">
+         <font>
+            <Font name="Comic Sans MS Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button layoutX="881.0" layoutY="294.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="125.0" style="-fx-background-color: red;" text="CLEAR" textFill="WHITE">
+         <font>
+            <Font name="Comic Sans MS Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button layoutX="1008.0" layoutY="294.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="125.0" style="-fx-background-color: green;" text="UPDATE" textFill="WHITE">
+         <font>
+            <Font name="Comic Sans MS Bold" size="13.0" />
+         </font>
+      </Button>
+      <TreeTableView layoutX="29.0" layoutY="398.0" prefHeight="285.0" prefWidth="1291.0" style="-fx-border-color: brown;">
+        <columns>
+          <TreeTableColumn prefWidth="75.0" text="ID" />
+          <TreeTableColumn prefWidth="75.0" text="Name" />
+            <TreeTableColumn prefWidth="75.0" text="NIC" />
+            <TreeTableColumn prefWidth="75.0" text="Address" />
+            <TreeTableColumn prefWidth="75.0" text="Email" />
+            <TreeTableColumn prefWidth="75.0" text="Contact" />
+            <TreeTableColumn prefWidth="75.0" text="Gender" />
+            <TreeTableColumn prefWidth="75.0" text="Category" />
+        </columns>
+         <columnResizePolicy>
+            <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TreeTableView>
+      <Separator layoutX="941.0" layoutY="219.0" orientation="VERTICAL" prefHeight="56.0" prefWidth="4.0" />
+   </children>
+</AnchorPane>
