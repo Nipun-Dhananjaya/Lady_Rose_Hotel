@@ -35,7 +35,7 @@
             </fill>
         </Rectangle>
         <Separator layoutX="168.0" layoutY="62.0" prefHeight="3.0" prefWidth="1298.0" />
-        <JFXButton fx:id="employerBtn" buttonType="RAISED" contentDisplay="TOP" layoutX="-4.0" layoutY="66.0" onAction="#showEmployeeManageOnAction" prefHeight="127.0" prefWidth="162.0" ripplerFill="#ffffff00" style="-fx-border-radius: 0; -fx-background-radius: 0; -fx-border-width: 0; -fx-background-position: white; -fx-border-color: blue;" text="Employers" textFill="#0d15d9">
+        <JFXButton fx:id="employerBtn" buttonType="RAISED" contentDisplay="TOP" layoutX="-4.0" layoutY="66.0" onAction="#showEmployeeManageOnAction" prefHeight="114.0" prefWidth="162.0" ripplerFill="#ffffff00" style="-fx-border-radius: 0; -fx-background-radius: 0; -fx-border-width: 0; -fx-background-position: white; -fx-border-color: blue;" text="Employers" textFill="#0d15d9">
             <graphic>
                 <ImageView fitHeight="114.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -47,7 +47,7 @@
                 <Shadow />
             </effect>
         </JFXButton>
-        <JFXButton fx:id="roomsBtn" buttonType="RAISED" contentDisplay="TOP" layoutX="-4.0" layoutY="190.0" onAction="#showRoomManageOnAction" prefHeight="127.0" prefWidth="162.0" ripplerFill="#ffffff00" style="-fx-border-radius: 0; -fx-background-radius: 0; -fx-border-width: 0; -fx-background-position: white; -fx-border-color: blue;" text="Rooms" textFill="#0d15d9">
+        <JFXButton fx:id="roomsBtn" buttonType="RAISED" contentDisplay="TOP" layoutX="-2.0" layoutY="178.0" onAction="#showRoomManageOnAction" prefHeight="114.0" prefWidth="162.0" ripplerFill="#ffffff00" style="-fx-border-radius: 0; -fx-background-radius: 0; -fx-border-width: 0; -fx-background-position: white; -fx-border-color: blue;" text="Rooms" textFill="#0d15d9">
             <graphic>
                 <ImageView fitHeight="90.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -64,7 +64,7 @@
                 <Font name="Arial Rounded MT Bold" size="43.0" />
             </font>
         </Label>
-        <JFXButton fx:id="suppliersBtn" buttonType="RAISED" contentDisplay="TOP" layoutX="-4.0" layoutY="318.0" onAction="#showSupplierManageOnAction" prefHeight="127.0" prefWidth="162.0" ripplerFill="#ffffff00" style="-fx-border-radius: 0; -fx-background-radius: 0; -fx-border-width: 0; -fx-background-position: white; -fx-border-color: blue;" text="Suppliers" textFill="#0d15d9">
+        <JFXButton fx:id="suppliersBtn" buttonType="RAISED" contentDisplay="TOP" layoutX="-3.0" layoutY="292.0" onAction="#showSupplierManageOnAction" prefHeight="114.0" prefWidth="162.0" ripplerFill="#ffffff00" style="-fx-border-radius: 0; -fx-background-radius: 0; -fx-border-width: 0; -fx-background-position: white; -fx-border-color: blue;" text="Suppliers" textFill="#0d15d9">
             <effect>
                 <Shadow />
             </effect>
@@ -76,7 +76,7 @@
                 </ImageView>
             </graphic>
         </JFXButton>
-        <JFXButton fx:id="ordersBtn" buttonType="RAISED" contentDisplay="TOP" layoutX="-4.0" layoutY="573.0" onAction="#showOrderManageOnAction" prefHeight="127.0" prefWidth="162.0" ripplerFill="#ffffff00" style="-fx-border-radius: 0; -fx-background-radius: 0; -fx-border-width: 0; -fx-background-position: white; -fx-border-color: blue;" text="Orders" textFill="#0d15d9">
+        <JFXButton fx:id="ordersBtn" buttonType="RAISED" contentDisplay="TOP" layoutX="-2.0" layoutY="634.0" onAction="#showOrderManageOnAction" prefHeight="114.0" prefWidth="162.0" ripplerFill="#ffffff00" style="-fx-border-radius: 0; -fx-background-radius: 0; -fx-border-width: 0; -fx-background-position: white; -fx-border-color: blue;" text="Orders" textFill="#0d15d9">
             <effect>
                 <Shadow />
             </effect>
@@ -141,7 +141,7 @@
         </JFXButton>
         <Label fx:id="dateLbl" layoutX="1469.0" layoutY="17.0" text="2023/03/31" />
         <Label fx:id="timeLbl" layoutX="1471.0" layoutY="35.0" text="22 : 45 : 00" />
-        <JFXButton fx:id="itemsBtn" buttonType="RAISED" contentDisplay="TOP" layoutX="-4.0" layoutY="446.0" onAction="#showItemManageOnAction" prefHeight="127.0" prefWidth="162.0" ripplerFill="#ffffff00" style="-fx-border-radius: 0; -fx-background-radius: 0; -fx-border-width: 0; -fx-background-position: white; -fx-border-color: blue;" text="Items" textFill="#0d15d9">
+        <JFXButton fx:id="itemsBtn" buttonType="RAISED" contentDisplay="TOP" layoutX="-3.0" layoutY="406.0" onAction="#showItemManageOnAction" prefHeight="114.0" prefWidth="162.0" ripplerFill="#ffffff00" style="-fx-border-radius: 0; -fx-background-radius: 0; -fx-border-width: 0; -fx-background-position: white; -fx-border-color: blue;" text="Items" textFill="#0d15d9">
             <effect>
                 <Shadow />
             </effect>
@@ -183,5 +183,17 @@
                 </RadialGradient>
             </ripplerFill>
         </JFXButton>
+      <JFXButton fx:id="restaurantItemsBtn" buttonType="RAISED" contentDisplay="TOP" layoutX="-3.0" layoutY="520.0" onAction="#showRestaurantItemManageOnAction" prefHeight="114.0" prefWidth="162.0" ripplerFill="#ffffff00" style="-fx-border-radius: 0; -fx-background-radius: 0; -fx-border-width: 0; -fx-background-position: white; -fx-border-color: blue;" text="Restaurant Items" textFill="#0d15d9">
+         <effect>
+            <Shadow />
+         </effect>
+         <graphic>
+            <ImageView fitHeight="67.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/restaurant.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
     </children>
 </AnchorPane>

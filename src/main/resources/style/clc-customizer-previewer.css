@@ -10,9 +10,6 @@
 #bookRoot {
 	-fx-background-color: #D9F1F9;
 }
-#rentRoot {
-	-fx-background-color: #D9F1F9;
-}
 #transportRoot {
 	-fx-background-color: #D9F1F9;
 }
@@ -25,19 +22,10 @@
 #roomsRoot{
 	-fx-background-color: #D9F1F9;
 }
-#carsRoot{
-	-fx-background-color: #D9F1F9;
-}
-#bicycleRoot{
-	-fx-background-color: #D9F1F9;
-}
 #suppRoot{
 	-fx-background-color: #D9F1F9;
 }
 #orderRoot{
-	-fx-background-color: #D9F1F9;
-}
-#filterRoot{
 	-fx-background-color: #D9F1F9;
 }
 #itemRoot{
