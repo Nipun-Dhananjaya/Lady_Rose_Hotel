@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="1552.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lady_rose.controller.ReceptionistDashBoardFormController">
+    <children>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" height="796.0" layoutX="-1.0" layoutY="-2.0" stroke="BLACK" strokeType="INSIDE" width="160.0">
+            <fill>
+                <LinearGradient endX="1.0" endY="1.0">
+                    <stops>
+                        <Stop>
+                            <color>
+                                <Color red="0.6308771967887878" green="0.87452632188797" blue="0.9789473414421082" />
+                            </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                            <color>
+                                <Color red="0.6921065449714661" green="0.9368420839309692" blue="0.6176218390464783" />
+                            </color>
+                        </Stop>
+                    </stops>
+                </LinearGradient>
+            </fill>
+        </Rectangle>
+        <Separator layoutX="170.0" layoutY="61.0" prefHeight="3.0" prefWidth="1362.0" />
+        <JFXButton fx:id="customerBtn" buttonType="RAISED" contentDisplay="TOP" layoutX="-2.0" layoutY="71.0" onAction="#showCustomerManageOnAction" prefHeight="118.0" prefWidth="160.0" ripplerFill="#ffffff00" style="-fx-border-radius: 0; -fx-background-radius: 0; -fx-border-width: 0; -fx-background-position: white; -fx-border-color: blue;" text="Customers" textFill="#0d15d9">
+            <graphic>
+                <ImageView fitHeight="64.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../image/customers-icon-12.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+            <effect>
+                <Shadow />
+            </effect>
+        </JFXButton>
+        <JFXButton fx:id="roomBookingBtn" buttonType="RAISED" contentDisplay="TOP" layoutX="-2.0" layoutY="189.0" onAction="#showBookingManageOnAction" prefHeight="118.0" prefWidth="160.0" ripplerFill="#ffffff00" style="-fx-border-radius: 0; -fx-background-radius: 0; -fx-border-width: 0; -fx-background-position: white; -fx-border-color: blue;" text="Room Bookings" textFill="#0d15d9">
+            <graphic>
+                <ImageView fitHeight="64.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../image/5511414.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+            <effect>
+                <Shadow />
+            </effect>
+        </JFXButton>
+        <JFXButton fx:id="paymentBtn" buttonType="RAISED" contentDisplay="TOP" layoutX="-1.0" layoutY="426.0" onAction="#showPaymentManageOnAction" prefHeight="118.0" prefWidth="160.0" ripplerFill="#ffffff00" style="-fx-border-width: 0; -fx-background-position: white; -fx-border-color: blue;" text="Payments" textFill="#0d15d9">
+            <graphic>
+                <ImageView fitHeight="64.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../image/1041576.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+            <effect>
+                <Shadow />
+            </effect>
+        </JFXButton>
+        <Label layoutX="652.0" layoutY="6.0" text="Lady Rose Hotel" textFill="#ed0505d9">
+            <font>
+                <Font name="Arial Rounded MT Bold" size="43.0" />
+            </font>
+        </Label>
+        <AnchorPane fx:id="homeRoot" layoutX="169.0" layoutY="66.0" prefHeight="718.0" prefWidth="1362.0" style="-fx-border-radius: 0; -fx-background-radius: 0;" stylesheets="@../style/clc-customizer-previewer.css" />
+        <Label fx:id="dateLbl" layoutX="1465.0" layoutY="4.0" text="2025/03/31" />
+        <Label fx:id="timeLbl" layoutX="1467.0" layoutY="22.0" text="22 : 45 : 00" />
+      <JFXButton fx:id="spaBookingBtn" buttonType="RAISED" contentDisplay="TOP" layoutX="-2.0" layoutY="307.0" onAction="#showBookingManageOnAction" prefHeight="118.0" prefWidth="160.0" ripplerFill="#ffffff00" style="-fx-background-position: white; -fx-border-width: 0; -fx-border-color: blue;" text="Spa Bookings" textFill="#0d15d9">
+         <graphic>
+            <ImageView fitHeight="64.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/sauna.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <effect>
+            <Shadow />
+         </effect>
+      </JFXButton>
+      <JFXButton fx:id="homeBtn" buttonType="RAISED" contentDisplay="TOP" layoutX="-1.0" layoutY="544.0" onAction="#showPaymentManageOnAction" prefHeight="118.0" prefWidth="160.0" ripplerFill="#ffffff00" style="-fx-border-width: 0; -fx-background-position: white; -fx-border-color: blue;" text="Home" textFill="#0d15d9">
+         <graphic>
+            <ImageView fitHeight="64.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/Homes+by+DJ+Jones+Icon+Only+png.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <effect>
+            <Shadow />
+         </effect>
+      </JFXButton>
+      <JFXButton fx:id="homeBtn1" buttonType="RAISED" contentDisplay="TOP" layoutX="-1.0" layoutY="662.0" onAction="#showPaymentManageOnAction" prefHeight="118.0" prefWidth="160.0" ripplerFill="#ffffff00" style="-fx-border-width: 0; -fx-background-position: white; -fx-border-color: blue;" text="Profiles" textFill="#0d15d9">
+         <graphic>
+            <ImageView fitHeight="64.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/android-profile-icon-2.jpg" />
+               </image>
+            </ImageView>
+         </graphic>
+         <effect>
+            <Shadow />
+         </effect>
+      </JFXButton>
+    </children>
+</AnchorPane>
