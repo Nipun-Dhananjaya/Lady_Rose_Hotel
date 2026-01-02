@@ -26,4 +26,7 @@ public class ManagerDashBoardFormController {
 
     public void showSettingsFormOnAction(ActionEvent actionEvent) {
     }
+
+    public void showRestaurantItemManageOnAction(ActionEvent actionEvent) {
+    }
 }
