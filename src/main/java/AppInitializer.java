@@ -11,7 +11,7 @@ public class AppInitializer extends Application {
     public void start(Stage stage) throws Exception {
         stage.centerOnScreen();
         stage.setTitle("Profile Selection");
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/profileSelectionForm.fxml"))));
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/selectProfileForm.fxml"))));
         stage.show();
     }
 }

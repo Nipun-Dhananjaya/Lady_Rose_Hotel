@@ -65,7 +65,7 @@
         <Label layoutX="773.0" layoutY="56.0" text="Job Role                  :" />
         <Label layoutX="771.0" layoutY="152.0" text="Start Date                 :" />
         <Label layoutX="943.0" layoutY="152.0" text="End Date                  :" />
-        <DatePicker fx:id="strtDtDtPck" layoutX="772.0" layoutY="171.0" prefHeight="26.0" prefWidth="163.0" style="-fx-background-color: white; -fx-border-color: brown;" />
+        <DatePicker fx:id="strtDtPck" layoutX="772.0" layoutY="171.0" prefHeight="26.0" prefWidth="163.0" style="-fx-background-color: white; -fx-border-color: brown;" />
         <DatePicker fx:id="endDtPkr" layoutX="943.0" layoutY="171.0" prefHeight="26.0" prefWidth="156.0" style="-fx-background-color: white; -fx-border-color: brown;" />
         <Label layoutX="772.0" layoutY="105.0" text="Date Of Birth           :" />
         <DatePicker fx:id="dobDtPck" layoutX="771.0" layoutY="123.0" prefHeight="26.0" prefWidth="163.0" style="-fx-background-color: white; -fx-border-color: brown;" />

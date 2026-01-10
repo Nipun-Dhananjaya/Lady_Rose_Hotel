@@ -5,7 +5,7 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="716.0" prefWidth="1362.4" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lady_rose.controller.PaymentFormController">
+<AnchorPane fx:id="paymentRoot" prefHeight="716.0" prefWidth="1362.4" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lady_rose.controller.PaymentFormController">
    <children>
       <Label layoutX="634.0" layoutY="27.0" text="Payments" textFill="#0628e8">
          <font>

@@ -25,12 +25,12 @@
             </cursor>
         </Button>
         <Label layoutX="146.0" layoutY="311.0" text="New Package Price                :" />
-        <ComboBox fx:id="packagesCmb" layoutX="148.0" layoutY="145.0" onAction="#selectPriceOnAction" prefHeight="34.0" prefWidth="294.0" promptText="Packages" style="-fx-border-color: blue; -fx-background-color: white;" />
+        <ComboBox fx:id="packagesCmb" layoutX="146.0" layoutY="146.0" onAction="#selectPriceOnAction" prefHeight="34.0" prefWidth="294.0" promptText="Packages" style="-fx-border-color: blue; -fx-background-color: white;" />
         <TextField fx:id="txtSleepCount" layoutX="146.0" layoutY="245.0" prefHeight="34.0" prefWidth="294.0" promptText="Sleep Count" style="-fx-border-color: blue;">
             <cursor>
                 <Cursor fx:constant="TEXT" />
             </cursor>
         </TextField>
-        <Label layoutX="146.0" layoutY="219.0" text="Sleep Count                         :" />
+        <Label layoutX="146.0" layoutY="218.0" text="Sleep Count                         :" />
     </children>
 </AnchorPane>

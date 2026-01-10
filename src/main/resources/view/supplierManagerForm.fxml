@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="722.0" prefWidth="1298.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lady_rose.controller.SupplierManagerFormController">
+   <children>
+      <Pane layoutY="-15.0" prefHeight="722.0" prefWidth="1298.0">
+         <children>
+            <Label layoutX="490.0" layoutY="22.0" text="Supplier Manager" textAlignment="CENTER" textFill="#2210eb">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="24.0" />
+               </font>
+            </Label>
+            <Separator layoutY="56.0" prefWidth="1298.0" />
+            <Label layoutX="230.0" layoutY="79.0" text="Supplier ID   :" />
+            <TextField fx:id="sidTxt" layoutX="230.0" layoutY="100.0" prefHeight="25.0" prefWidth="295.0" promptText="Supplier ID" style="-fx-border-color: #964B00; -fx-border-radius: 25; -fx-background-radius: 25;" />
+            <Label layoutX="228.0" layoutY="141.0" text="Supplier Name   :" />
+            <TextField fx:id="snameTxt" layoutX="230.0" layoutY="157.0" prefHeight="25.0" prefWidth="295.0" promptText="Supplier Name" style="-fx-border-color: #964B00; -fx-border-radius: 25; -fx-background-radius: 25;" />
+            <Label layoutX="759.0" layoutY="198.0" text="Contract Start Date   :" />
+            <DatePicker fx:id="sDteTxt" layoutX="759.0" layoutY="221.0" promptText="C_Start_Date" style="-fx-border-color: #964B00;" />
+            <Label layoutX="972.0" layoutY="198.0" text="Contract End Date   :" />
+            <DatePicker fx:id="eDtTxt" layoutX="972.0" layoutY="221.0" promptText="C_End_Date" style="-fx-border-color: #964B00;" />
+            <Label layoutX="761.0" layoutY="141.0" text="Item   :" />
+            <TextField fx:id="sitemTxt" layoutX="759.0" layoutY="157.0" prefHeight="25.0" prefWidth="295.0" promptText="Item" style="-fx-border-color: #964B00; -fx-border-radius: 25; -fx-background-radius: 25;" />
+            <TableView layoutX="38.0" layoutY="302.0" prefHeight="420.0" prefWidth="1229.0">
+              <columns>
+                <TableColumn prefWidth="100.79998397827148" text="ID" />
+                <TableColumn prefWidth="180.40000915527344" text="Name" />
+                  <TableColumn prefWidth="233.39999389648438" text="Address" />
+                  <TableColumn prefWidth="195.39999389648438" text="Email" />
+                  <TableColumn prefWidth="101.5999755859375" text="Contact" />
+                  <TableColumn prefWidth="145.0" text="Item" />
+                  <TableColumn prefWidth="145.199951171875" text="C_Start_Date" />
+                  <TableColumn prefWidth="128.5999755859375" text="C_End_Date" />
+              </columns>
+            </TableView>
+            <Label layoutX="230.0" layoutY="189.0" text="Supplier Address   :" />
+            <TextField fx:id="saddrsTxt" layoutX="230.0" layoutY="206.0" prefHeight="25.0" prefWidth="295.0" promptText="Supplier Address" style="-fx-border-color: #964B00; -fx-border-radius: 25; -fx-background-radius: 25;" />
+            <Label layoutX="229.0" layoutY="240.0" text="Supplier Email   :" />
+            <TextField fx:id="smilTxt" layoutX="230.0" layoutY="257.0" prefHeight="25.0" prefWidth="295.0" promptText="Supplier Email" style="-fx-border-color: #964B00; -fx-border-radius: 25; -fx-background-radius: 25;" />
+            <Label layoutX="761.0" layoutY="79.0" text="Supplier Contact  :" />
+            <TextField fx:id="scontctTxt" layoutX="761.0" layoutY="100.0" prefHeight="27.0" prefWidth="252.0" promptText="Contact" style="-fx-border-color: #964B00; -fx-border-radius: 25; -fx-background-radius: 25;" />
+            <Button layoutX="1020.0" layoutY="101.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="30.0" style="-fx-border-color: #964B00;" text="+" />
+            <Button layoutX="761.0" layoutY="258.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="114.0" style="-fx-background-color: #4CAF50; -fx-border-color: #000000;" text="Add" />
+            <Button layoutX="906.0" layoutY="258.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="114.0" style="-fx-border-color: #000000; -fx-background-color: #0D2EFF;" text="Update" />
+         </children></Pane>
+   </children>
+</AnchorPane>

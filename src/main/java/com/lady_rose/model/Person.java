@@ -1,6 +1,7 @@
 package com.lady_rose.model;
 
 public class Person {
+    static final int stringLength = 5;
     private String pId;
     private String name;
     private String phoneNumber;
