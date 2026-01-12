@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="583.0" style="-fx-background-color: D9F2F9;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ChangePasswsordForm">
+   <children>
+      <Label layoutX="140.0" prefHeight="51.0" prefWidth="391.0" text="CHANGE PASSWORD" textFill="#f50b0b">
+         <font>
+            <Font name="Comic Sans MS Bold" size="24.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eceff2" height="322.0" layoutX="85.0" layoutY="45.0" stroke="#f5eeee" strokeType="INSIDE" width="402.0" />
+      <Label layoutX="100.0" layoutY="51.0" prefHeight="18.0" prefWidth="91.0" text="Old Username :" />
+      <TextField layoutX="100.0" layoutY="69.0" prefHeight="26.0" prefWidth="327.0" />
+      <Label layoutX="102.0" layoutY="105.0" prefHeight="18.0" prefWidth="100.0" text="New Username : " />
+      <TextField layoutX="102.0" layoutY="123.0" prefHeight="26.0" prefWidth="327.0" />
+      <Label layoutX="102.0" layoutY="160.0" prefHeight="18.0" prefWidth="167.0" text="Old Password : " />
+      <TextField layoutX="102.0" layoutY="178.0" prefHeight="26.0" prefWidth="327.0" />
+      <Label layoutX="102.0" layoutY="212.0" prefHeight="18.0" prefWidth="238.0" text="New Password :" />
+      <TextField layoutX="102.0" layoutY="230.0" prefHeight="26.0" prefWidth="327.0" />
+      <Label layoutX="102.0" layoutY="268.0" prefHeight="18.0" prefWidth="195.0" text="Re-Enter New Password :" />
+      <TextField layoutX="102.0" layoutY="286.0" prefHeight="26.0" prefWidth="327.0" />
+      <Button layoutX="243.0" layoutY="327.0" mnemonicParsing="false" text="Reset Password" />
+      <Button layoutX="505.0" layoutY="327.0" mnemonicParsing="false" text="Back" />
+   </children>
+</AnchorPane>

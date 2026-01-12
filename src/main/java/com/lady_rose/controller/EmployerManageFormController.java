@@ -80,15 +80,43 @@ public class EmployerManageFormController {
     }
 
     private boolean isCorrectPattern() {
-        if (RegExPattern.getNamePattern().matcher(nameTxt.getText()).matches()  && (RegExPattern.getIdPattern().matcher(nicTxt.getText()).matches() ||RegExPattern.getOldIDPattern().matcher(nicTxt.getText()).matches() ) && RegExPattern.getAddressPattern().matcher(addressTxt.getText()).matches() && RegExPattern.getDoublePattern().matcher(empSalary.getText()).matches() && RegExPattern.getEmailPattern().matcher(emailTxt.getText()).matches()){
+        if (RegExPattern.getNamePattern().matcher(nameTxt.getText()).matches()  &&
+                (RegExPattern.getIdPattern().matcher(nicTxt.getText()).matches() ||
+                        RegExPattern.getOldIDPattern().matcher(nicTxt.getText()).matches() ) &&
+                RegExPattern.getAddressPattern().matcher(addressTxt.getText()).matches() &&
+                RegExPattern.getDoublePattern().matcher(empSalary.getText()).matches() &&
+                RegExPattern.getEmailPattern().matcher(emailTxt.getText()).matches()){
             return true;
         }
         return false;
     }
 
-    public void updateDetailsOnAction(ActionEvent actionEvent) {
+    public void updateDetailsOnAction(ActionEvent actionEvent) throws SQLException {
+        try {
+            DBConnection.getInstance().getConnection().setAutoCommit(false);
+            boolean isAffected=false;
+            if (isCorrectPattern()){
+                isAffected= Employee.updateEmployer(idTxt.getText(), nameTxt.getText(), nicTxt.getText(),
+                        addressTxt.getText(), emailTxt.getText(), String.join(" , ", Employee.contact),dobDtPck.getValue(),
+                        maleRdBtn.isSelected() ? "MALE" : "FEMALE", jobRolTxt.getText(),empSalary.getText(),strtDtPck.getValue(),endDtPkr.getValue());
+            }
+            if (isAffected) {
+                new Alert(Alert.AlertType.INFORMATION, "Employer Updated!").showAndWait();
+                DBConnection.getInstance().getConnection().commit();
+                idTxt.setDisable(false);
+            } else {
+                new Alert(Alert.AlertType.WARNING, "Re-Check Submitted Details!").showAndWait();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            DBConnection.getInstance().getConnection().rollback();
+        }finally{
+            DBConnection.getInstance().getConnection().setAutoCommit(true);
+        }
     }
 
     public void setTxtBxValueOnAction(ActionEvent actionEvent) {
+        contactTxt.setText(String.valueOf(contactCmbBx.getSelectionModel().getSelectedItem()));
+        con = contactTxt.getText();
     }
 }

@@ -25,8 +25,23 @@ public class Employee extends Person{
                                LocalDate dob, String gender, String jobRole, String salary, LocalDate serviceStrtDate,
                                LocalDate serviceEndDate){
         try {
-            boolean isAffected =CrudUtil.execute("INSERT INTO Employee VALUES(?,?,?,?,?,?,?,?,?,?,?,?);", ID, name,
-                    nic, address, email, contacts, dob, gender, jobRole, salary, serviceStrtDate, serviceEndDate);
+            boolean isAffected =CrudUtil.execute("INSERT INTO Employee VALUES(?,?,?,?,?,?,?,?,?,?,?,?);", ID, nic, name,
+                    gender,address, email, contacts, dob, jobRole, salary, serviceStrtDate, serviceEndDate);
+            if (isAffected){
+                return true;
+            }else{
+                return false;
+            }
+        } catch (SQLException e) {
+            return false;
+        }
+    }
+    public static boolean updateEmployer(String ID, String name, String nic, String address, String email, String contacts,
+                                         LocalDate dob, String gender, String jobRole, String salary, LocalDate serviceStrtDate,
+                                         LocalDate serviceEndDate) {
+        try {
+            boolean isAffected =CrudUtil.execute("UPDATE employer SET emp_name=?,emp_nic=?,emp_address=?,emp_email=?,emp_contact=?,emp_dob=?,gender=?,job_role=?,monthly_salary=?,entered_date=?,service_end_date=? WHERE emp_id=?;", name,
+                    nic, address, email, contacts, dob, gender, jobRole, salary, serviceStrtDate, serviceEndDate,ID);
             if (isAffected){
                 return true;
             }else{

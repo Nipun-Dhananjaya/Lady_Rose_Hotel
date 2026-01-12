@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #D9F2F9;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lady_rose.controller.SpaBookingsFormController">
+   <children>
+      <Label layoutX="214.0" layoutY="14.0" prefHeight="18.0" prefWidth="172.0" text="Spa Details" textFill="#ff1212">
+         <font>
+            <Font name="Comic Sans MS Bold" size="24.0" />
+         </font></Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dee1e2" height="320.0" layoutX="73.0" layoutY="58.0" stroke="#fdf7f7" strokeType="INSIDE" width="455.0" />
+      <Label layoutX="102.0" layoutY="132.0" prefHeight="18.0" prefWidth="146.0" text="Booking Date : " />
+      <DatePicker layoutX="102.0" layoutY="150.0" prefHeight="26.0" prefWidth="329.0" />
+      <Label layoutX="102.0" layoutY="191.0" prefHeight="18.0" prefWidth="265.0" text="Booked Date : " />
+      <DatePicker layoutX="101.0" layoutY="209.0" prefHeight="26.0" prefWidth="330.0" />
+      <Label layoutX="102.0" layoutY="73.0" prefHeight="18.0" prefWidth="209.0" text="Booking ID : " />
+      <TextField layoutX="102.0" layoutY="91.0" prefHeight="26.0" prefWidth="330.0" />
+      <Label layoutX="102.0" layoutY="251.0" prefHeight="18.0" prefWidth="313.0" text="Package : " />
+      <ComboBox fx:id="Packages" layoutX="100.0" layoutY="269.0" prefHeight="26.0" prefWidth="337.0" AnchorPane.rightAnchor="163.0">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </ComboBox>
+      <Button layoutX="140.0" layoutY="327.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="97.0" text="Save" />
+      <Button layoutX="301.0" layoutY="328.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="104.0" text="Update" />
+   </children>
+</AnchorPane>
