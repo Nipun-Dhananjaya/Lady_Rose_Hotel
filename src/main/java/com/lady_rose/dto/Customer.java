@@ -1,4 +1,4 @@
-package com.lady_rose.model;
+package com.lady_rose.dto;
 
 public class Customer extends Person{
     private String category;

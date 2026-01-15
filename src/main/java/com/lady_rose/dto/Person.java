@@ -1,4 +1,4 @@
-package com.lady_rose.model;
+package com.lady_rose.dto;
 
 public class Person {
     static final int stringLength = 5;
@@ -9,6 +9,7 @@ public class Person {
     private String address;
     private String gender;
     private String nic;
+    private String dob;
 
     public Person(){
 
@@ -77,5 +78,13 @@ public class Person {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public String getDob() {
+        return dob;
+    }
+
+    public void setDob(String dob) {
+        this.dob = dob;
     }
 }

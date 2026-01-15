@@ -1,4 +1,4 @@
-package com.lady_rose.model;
+package com.lady_rose.dto;
 
 public class Restaurant_Item {
     private String item_ID;
