@@ -35,8 +35,8 @@ public class ItemManageFormController {
 
         for (Item itm : itmList) {
             obList.add(new Item(
-                    itm.getItemCode(),
-                    itm.getItemDescription()
+                    itm.getItem_ID(),
+                    itm.get()
             ));
         }
         itmTbl.setItems(obList);

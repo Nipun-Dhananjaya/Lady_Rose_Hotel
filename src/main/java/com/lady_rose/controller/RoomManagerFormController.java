@@ -1,7 +1,6 @@
 package com.lady_rose.controller;
 
 import com.lady_rose.db.DBConnection;
-import com.lady_rose.dto.Room;
 import com.lady_rose.model.Employee;
 import com.lady_rose.model.Room;
 import com.lady_rose.regex.RegExPattern;

@@ -6,19 +6,19 @@
 
 <AnchorPane prefHeight="722.0" prefWidth="1298.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lady_rose.controller.OrderManagerFormController">
    <children>
-      <Pane layoutX="5.0" prefHeight="722.0" prefWidth="1298.0">
+      <Pane fx:id="orderPane" layoutX="5.0" prefHeight="722.0" prefWidth="1298.0">
          <children>
             <Label layoutX="273.0" layoutY="90.0" text="Order ID   :" />
-            <TextField fx:id="sidTxt" layoutX="273.0" layoutY="107.0" prefHeight="25.0" prefWidth="295.0" promptText="Order ID" style="-fx-border-color: #964B00; -fx-border-radius: 25; -fx-background-radius: 25;" />
+            <TextField fx:id="orderIdTxt" layoutX="273.0" layoutY="107.0" onAction="#idSearchOnAction" prefHeight="25.0" prefWidth="295.0" promptText="Order ID" style="-fx-border-color: #964B00; -fx-border-radius: 25; -fx-background-radius: 25;" />
             <Label layoutX="273.0" layoutY="144.0" text="Item   :" />
-            <TextField fx:id="sidTxt1" layoutX="273.0" layoutY="161.0" prefHeight="25.0" prefWidth="295.0" promptText="Item" style="-fx-border-color: #964B00; -fx-border-radius: 25; -fx-background-radius: 25;" />
+            <TextField fx:id="itemTxt" layoutX="273.0" layoutY="161.0" prefHeight="25.0" prefWidth="295.0" promptText="Item" style="-fx-border-color: #964B00; -fx-border-radius: 25; -fx-background-radius: 25;" />
             <Label layoutX="273.0" layoutY="201.0" text="Quantity    :" />
-            <TextField fx:id="sidTxt11" layoutX="273.0" layoutY="218.0" prefHeight="25.0" prefWidth="295.0" promptText="Quantity" style="-fx-border-color: #964B00; -fx-border-radius: 25; -fx-background-radius: 25;" />
+            <TextField fx:id="quantityTxt" layoutX="273.0" layoutY="218.0" prefHeight="25.0" prefWidth="295.0" promptText="Quantity" style="-fx-border-color: #964B00; -fx-border-radius: 25; -fx-background-radius: 25;" />
             <Label layoutX="722.0" layoutY="90.0" text="Billed Date   :" />
-            <DatePicker layoutX="722.0" layoutY="108.0" prefHeight="25.0" prefWidth="295.0" />
+            <DatePicker fx:id="billedDateTxt" layoutX="722.0" layoutY="108.0" prefHeight="25.0" prefWidth="295.0" />
             <Label layoutX="722.0" layoutY="144.0" text="Billed Time   :" />
-            <TextField fx:id="sidTxt12" layoutX="722.0" layoutY="161.0" prefHeight="25.0" prefWidth="295.0" promptText="Time" style="-fx-border-color: #964B00; -fx-border-radius: 25; -fx-background-radius: 25;" />
-            <TableView layoutX="35.0" layoutY="276.0" prefHeight="446.0" prefWidth="1229.0">
+            <TextField fx:id="billedTimeTxt" layoutX="722.0" layoutY="161.0" prefHeight="25.0" prefWidth="295.0" promptText="Time" style="-fx-border-color: #964B00; -fx-border-radius: 25; -fx-background-radius: 25;" />
+            <TableView fx:id="orderTbl" layoutX="35.0" layoutY="276.0" prefHeight="446.0" prefWidth="1229.0">
               <columns>
                 <TableColumn prefWidth="140.19997787475586" text="ID" />
                 <TableColumn prefWidth="300.6000518798828" text="Item" />
@@ -27,8 +27,8 @@
                   <TableColumn prefWidth="258.3999938964844" text="Billed _Time" />
               </columns>
             </TableView>
-            <Button layoutX="731.0" layoutY="219.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: #4CAF50; -fx-border-color: #000000;" text="Add" />
-            <Button layoutX="877.0" layoutY="219.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: #0D2EFF; -fx-border-color: #000000;" text="Update" />
+            <Button fx:id="addBtn" layoutX="731.0" layoutY="219.0" mnemonicParsing="false" onAction="#addOrderOnAction" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: #4CAF50; -fx-border-color: #000000;" text="Add" />
+            <Button fx:id="updateBtn" layoutX="877.0" layoutY="219.0" mnemonicParsing="false" onAction="#updateDetailsOnAction" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: #0D2EFF; -fx-border-color: #000000;" text="Update" />
          </children></Pane>
       <Label layoutX="500.0" layoutY="32.0" text="Order Manager" textAlignment="CENTER" textFill="#2210eb">
          <font>
