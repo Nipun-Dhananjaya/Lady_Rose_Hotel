@@ -1,5 +1,11 @@
 package com.lady_rose.dto;
 
+import com.lady_rose.util.CrudUtil;
+import jdk.jfr.Category;
+
+import java.sql.SQLException;
+import java.time.LocalDate;
+
 public class Room {
     private String R_No;
     private String Category;
@@ -46,6 +52,32 @@ public class Room {
 
     public void setBedCount(int bedCount){
         this.bedCount=bedCount;
+    }
+
+    public static boolean addRoom(String R_no, Object category, String bedCount, Object roomView){
+        try{
+            boolean isAffected = CrudUtil.execute("INSERT INTO Room VALUES(?,?,?,?,?,?,?,?,?,?,?,?);", R_no,category,bedCount,roomView);
+            if (isAffected){
+                return true;
+            }else{
+                return false;
+            }
+        }catch (SQLException e) {
+            return false;
+        }
+    }
+
+    public static boolean updateRoom(String R_no, Object category, String bedCount, Object roomView) {
+        try {
+            boolean isAffected =CrudUtil.execute("UPDATE room SET Obj_category=?,r_bedCount=?,Obj_view=? WHERE r_no=?;",bedCount,roomView , category,R_no);
+            if (isAffected){
+                return true;
+            }else{
+                return false;
+            }
+        } catch (SQLException e) {
+            return false;
+        }
     }
 
 }

@@ -1,5 +1,10 @@
 package com.lady_rose.dto;
 
+import com.lady_rose.util.CrudUtil;
+
+import java.sql.SQLException;
+import java.time.LocalDate;
+
 public class Restaurant_Item {
     private String item_ID;
     private String name;
@@ -36,5 +41,33 @@ public class Restaurant_Item {
 
     public void setItemUnitPrice(double itemUnitPrice) {
         this.itemUnitPrice = itemUnitPrice;
+    }
+
+    public static boolean addRestaurantItem(String item_ID,String name,double itemUnitPrice){
+        try {
+            boolean isAffected = CrudUtil.execute("INSERT INTO Restaurant Item VALUES(?,?,?,?,?,?,?,?,?,?,?,?);", item_ID, name,
+                    itemUnitPrice);
+            if (isAffected){
+                return true;
+            }else{
+                return false;
+            }
+        } catch (SQLException e) {
+            return false;
+        }
+    }
+
+    public static boolean updateRestaurantItem(String item_ID,String name,double itemUnitPrice) {
+        try {
+            boolean isAffected =CrudUtil.execute("UPDATE Restaurant Item SET item_name=?,item_unit_price=? WHERE item_id=?;", name,
+                    itemUnitPrice,item_ID);
+            if (isAffected){
+                return true;
+            }else{
+                return false;
+            }
+        } catch (SQLException e) {
+            return false;
+        }
     }
 }
