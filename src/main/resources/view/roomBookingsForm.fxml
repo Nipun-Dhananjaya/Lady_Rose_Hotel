@@ -14,25 +14,25 @@
          <font>
             <Font size="14.0" />
          </font></Label>
-      <TextField layoutX="242.0" layoutY="126.0" prefHeight="26.0" prefWidth="304.0" style="-fx-border-color: #073a40; -fx-background-radius: 20; -fx-border-radius: 20;" />
-      <Label layoutX="252.0" layoutY="184.0" prefHeight="18.0" prefWidth="184.0" text="Booked Date :">
+      <TextField fx:id="txtBookingId" layoutX="252.0" layoutY="118.0" prefHeight="26.0" prefWidth="304.0" style="-fx-border-color: #073a40; -fx-background-radius: 20; -fx-border-radius: 20;" />
+      <Label layoutX="252.0" layoutY="164.0" prefHeight="18.0" prefWidth="184.0" text="Booked Date :">
          <font>
             <Font size="14.0" />
          </font></Label>
-      <DatePicker layoutX="242.0" layoutY="222.0" prefHeight="26.0" prefWidth="304.0" style="-fx-border-color: #c0392b;" />
+      <DatePicker fx:id="dpBookedDate" layoutX="252.0" layoutY="190.0" prefHeight="26.0" prefWidth="304.0" style="-fx-border-color: #c0392b;" />
       <Label layoutX="684.0" layoutY="91.0" prefHeight="18.0" prefWidth="128.0" text="Start Date : ">
          <font>
             <Font size="14.0" />
          </font></Label>
-      <Label layoutX="684.0" layoutY="184.0" prefHeight="20.0" prefWidth="92.0" text="End Date :">
+      <Label layoutX="681.0" layoutY="164.0" prefHeight="20.0" prefWidth="92.0" text="End Date :">
          <font>
             <Font size="14.0" />
          </font></Label>
-      <DatePicker layoutX="681.0" layoutY="126.0" prefHeight="27.0" prefWidth="304.0" style="-fx-border-color: #c0392b;" />
-      <DatePicker layoutX="681.0" layoutY="222.0" prefHeight="27.0" prefWidth="304.0" style="-fx-border-color: #c0392b;" />
-      <Button layoutX="881.0" layoutY="310.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="120.0" style="-fx-background-color: #2530b4;" text="Update" textFill="WHITE" />
-      <Button layoutX="688.0" layoutY="310.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="120.0" style="-fx-background-color: #25b454;" text="Save" textFill="WHITE" />
-      <TableView editable="true" layoutX="323.0" layoutY="395.0" prefHeight="210.0" prefWidth="721.0">
+      <DatePicker fx:id="dpStartDate" layoutX="681.0" layoutY="118.0" prefHeight="27.0" prefWidth="304.0" style="-fx-border-color: #c0392b;" />
+      <DatePicker fx:id="dpEndDate" layoutX="681.0" layoutY="190.0" prefHeight="27.0" prefWidth="304.0" style="-fx-border-color: #c0392b;" />
+      <Button fx:id="btnUpdate" layoutX="833.0" layoutY="250.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="120.0" style="-fx-background-color: #2530b4;" text="Update" textFill="WHITE" />
+      <Button fx:id="btnSave" layoutX="681.0" layoutY="250.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="120.0" style="-fx-background-color: #25b454;" text="Save" textFill="WHITE" />
+      <TableView editable="true" layoutX="246.0" layoutY="299.0" prefHeight="363.0" prefWidth="869.0">
         <columns>
           <TableColumn prefWidth="75.0" text="Booking ID" />
           <TableColumn prefWidth="110.20002746582031" text="Booked Date " />
