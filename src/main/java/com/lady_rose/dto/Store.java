@@ -1,4 +1,4 @@
-package com.lady_rose.model;
+package com.lady_rose.dto;
 
 public class Store {
     private String item_ID;

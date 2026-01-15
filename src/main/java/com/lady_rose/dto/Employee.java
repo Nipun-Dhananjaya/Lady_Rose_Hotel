@@ -1,4 +1,4 @@
-package com.lady_rose.model;
+package com.lady_rose.dto;
 
 import com.lady_rose.util.CrudUtil;
 
@@ -6,21 +6,26 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Employee extends Person{
     private double salary;
     private  String position;
+    private String enteredDate;
+    private String resignedDate;
     public static ArrayList<String> contact = new ArrayList<>();
 
     public Employee(){
 
     }
 
-    public Employee(String pId, String name, String phoneNumber, String emailAddress, String address, String gender, String nic, String position, double salary){
+    public Employee(String pId, String name, String phoneNumber, String emailAddress, String address, String gender,
+                    String nic, String position, double salary){
         super(pId, name, phoneNumber, emailAddress, address, gender, nic);
         this.position=position;
         this.salary=salary;
     }
+
     public static boolean addEmployee(String ID, String name, String nic, String address, String email, String contacts,
                                LocalDate dob, String gender, String jobRole, String salary, LocalDate serviceStrtDate,
                                LocalDate serviceEndDate){
@@ -107,5 +112,21 @@ public class Employee extends Person{
 
     public void setSalary(double salary) {
         this.salary = salary;
+    }
+
+    public String getResignedDate() {
+        return resignedDate;
+    }
+
+    public void setResignedDate(String resignedDate) {
+        this.resignedDate = resignedDate;
+    }
+
+    public String getEnteredDate() {
+        return enteredDate;
+    }
+
+    public void setEnteredDate(String enteredDate) {
+        this.enteredDate = enteredDate;
     }
 }

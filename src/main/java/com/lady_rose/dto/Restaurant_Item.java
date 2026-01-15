@@ -1,4 +1,4 @@
-package com.lady_rose.model;
+package com.lady_rose.dto;
 
 import com.lady_rose.util.CrudUtil;
 
