@@ -1,8 +1,6 @@
 package com.lady_rose.controller;
 
 import com.lady_rose.db.DBConnection;
-import com.lady_rose.model.Employee;
-import com.lady_rose.model.Room;
 import com.lady_rose.regex.RegExPattern;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
@@ -24,7 +22,7 @@ public class RoomManagerFormController {
     }
 
     public void addRoomOnAction(ActionEvent actionEvent) throws SQLException {
-        try {
+        /*try {
             DBConnection.getInstance().getConnection().setAutoCommit(false);
             boolean isAffected = false;
             if (isCorrectPattern()) {
@@ -41,7 +39,7 @@ public class RoomManagerFormController {
             DBConnection.getInstance().getConnection().rollback();
         }finally{
             DBConnection.getInstance().getConnection().setAutoCommit(true);
-        }
+        }*/
     }
 
     private boolean isCorrectPattern(){
@@ -52,7 +50,7 @@ public class RoomManagerFormController {
     }
 
     public void updateRoomOnAction(ActionEvent actionEvent) throws SQLException {
-        try {
+        /*try {
             DBConnection.getInstance().getConnection().setAutoCommit(false);
             boolean isAffected=false;
             if (isCorrectPattern()){
@@ -70,7 +68,7 @@ public class RoomManagerFormController {
             DBConnection.getInstance().getConnection().rollback();
         }finally{
             DBConnection.getInstance().getConnection().setAutoCommit(true);
-        }
+        }*/
     }
 
     public void setTxtBxCatgyValueOnAction(ActionEvent actionEvent) {
