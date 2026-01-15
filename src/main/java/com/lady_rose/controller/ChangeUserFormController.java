@@ -1,8 +1,19 @@
 package com.lady_rose.controller;
 
 import javafx.event.ActionEvent;
+import javafx.scene.control.*;
 
 public class ChangeUserFormController {
+    public TextField txtOldUserName;
+    public Button changeUserBtn;
+    public TextField txtNewUserEmpId;
+    public PasswordField txtOldPwd;
+    public PasswordField txtNewPwd;
+    public RadioButton receptionistRdBtn;
+    public ToggleGroup user;
+    public RadioButton managerRdBtn;
+    public TextField txtNewUserName;
+
     public void escapeOldPwdOnAction(ActionEvent actionEvent) {
     }
 

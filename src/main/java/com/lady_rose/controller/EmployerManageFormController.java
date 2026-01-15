@@ -2,6 +2,7 @@ package com.lady_rose.controller;
 
 import com.lady_rose.db.DBConnection;
 import com.lady_rose.dto.Employee;
+import com.lady_rose.model.EmployeeModel;
 import com.lady_rose.regex.RegExPattern;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -51,6 +52,33 @@ public class EmployerManageFormController {
     public TableColumn columnResignedDate;
 
 
+    public void initialize() throws SQLException {
+        setCellValueFactory();
+        getAllEmployers();
+    }
+
+    private void getAllEmployers() throws SQLException {
+        ObservableList<Employee> obList = FXCollections.observableArrayList();
+        List<Employee> empList = EmployeeModel.getAll();
+
+        for (Employee employer : empList) {
+            obList.add(new Employee(
+                    employer.getPId(),
+                    employer.getName(),
+                    employer.getNic(),
+                    employer.getAddress(),
+                    employer.getEmailAddress(),
+                    employer.getPhoneNumber(),
+                    employer.getDob(),
+                    employer.getGender(),
+                    employer.getPosition(),
+                    String.valueOf(employer.getSalary()),
+                    employer.getEnteredDate(),
+                    employer.getResignedDate()
+            ));
+        }
+        empTbl.setItems(obList);
+    }
     void setCellValueFactory() {
         columnId.setCellValueFactory(new PropertyValueFactory<>("empId"));
         columnName.setCellValueFactory(new PropertyValueFactory<>("empName"));
@@ -69,7 +97,7 @@ public class EmployerManageFormController {
         try {
             DBConnection.getInstance().getConnection().setAutoCommit(false);
             Employee.contact.clear();
-            List<Employee> empList = Employee.searchEmployer(idTxt.getText());
+            List<Employee> empList = EmployeeModel.searchEmployee(idTxt.getText());
             if (!empList.isEmpty()){
                 for (Employee employer : empList) {
                     nameTxt.setText(employer.getName());
@@ -120,7 +148,7 @@ public class EmployerManageFormController {
             DBConnection.getInstance().getConnection().setAutoCommit(false);
             boolean isAffected=false;
             if (isCorrectPattern()){
-                isAffected= Employee.addEmployee(Employee.generateID(), nameTxt.getText(), nicTxt.getText(),
+                isAffected= EmployeeModel.addEmployee(EmployeeModel.generateID(), nameTxt.getText(), nicTxt.getText(),
                         addressTxt.getText(), emailTxt.getText(), String.join(" , ", Employee.contact),dobDtPck.getValue(),
                         maleRdBtn.isSelected() ? "MALE" : "FEMALE", jobRolTxt.getText(),empSalary.getText(),strtDtPck.getValue(),endDtPkr.getValue());
             }
@@ -142,7 +170,7 @@ public class EmployerManageFormController {
             Employee.contact.remove(con);
         }
         if (RegExPattern.getMobilePattern().matcher(contactTxt.getText()).matches()){
-            boolean isAlreadyHas = Employee.addContact(contactTxt.getText());
+            boolean isAlreadyHas = EmployeeModel.addContact(contactTxt.getText());
             if (!isAlreadyHas) {
                 new Alert(Alert.AlertType.WARNING, "Contact Already Added!").showAndWait();
             } else {
@@ -174,7 +202,7 @@ public class EmployerManageFormController {
             DBConnection.getInstance().getConnection().setAutoCommit(false);
             boolean isAffected=false;
             if (isCorrectPattern()){
-                isAffected= Employee.updateEmployer(idTxt.getText(), nameTxt.getText(), nicTxt.getText(),
+                isAffected= EmployeeModel.updateEmployer(idTxt.getText(), nameTxt.getText(), nicTxt.getText(),
                         addressTxt.getText(), emailTxt.getText(), String.join(" , ", Employee.contact),dobDtPck.getValue(),
                         maleRdBtn.isSelected() ? "MALE" : "FEMALE", jobRolTxt.getText(),empSalary.getText(),strtDtPck.getValue(),endDtPkr.getValue());
             }

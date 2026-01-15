@@ -9,7 +9,6 @@ public class Person {
     private String address;
     private String gender;
     private String nic;
-    private String dob;
 
     public Person(){
 
@@ -78,13 +77,5 @@ public class Person {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
-    }
-
-    public String getDob() {
-        return dob;
-    }
-
-    public void setDob(String dob) {
-        this.dob = dob;
     }
 }

@@ -1,6 +1,6 @@
 package com.lady_rose.dto;
 
-public class Store {
+public class Item {
     private String item_ID;
     private String name;
     private double qty;
@@ -10,10 +10,10 @@ public class Store {
     private String preOrderDate;
     private double preOrderQty;
 
-    public Store(){
+    public Item(){
     }
 
-    public Store(String item_ID,String name,double qty,double itemUnitPrice,String stockedDate,String orderedDate,String preOrderDate,double preOrderQty){
+    public Item(String item_ID, String name, double qty, double itemUnitPrice, String stockedDate, String orderedDate, String preOrderDate, double preOrderQty){
         this.item_ID=item_ID;
         this.name=name;
         this.qty=qty;

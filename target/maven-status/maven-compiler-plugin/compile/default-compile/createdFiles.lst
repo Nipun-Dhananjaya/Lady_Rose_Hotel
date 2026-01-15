@@ -1,1 +1,3 @@
-com\lady_rose\db\DBConnection.class
+com\lady_rose\dto\Packages.class
+com\lady_rose\dto\RoomPackage.class
+com\lady_rose\dto\Room.class
