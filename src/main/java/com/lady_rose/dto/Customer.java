@@ -1,9 +1,12 @@
 package com.lady_rose.dto;
 
+import java.util.ArrayList;
+
 public class Customer extends Person{
     private String category;
+    public static ArrayList<String> contact = new ArrayList<>();
 
-    public Customer(){
+    public Customer(String string, String resultSetString, String setString, String s, String string1, String resultSetString1, String setString1, String s1, String string2, String resultSetString2, String setString2, String s2){
 
     }
 
