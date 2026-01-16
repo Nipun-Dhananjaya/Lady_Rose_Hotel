@@ -90,19 +90,7 @@
             <Shadow />
          </effect>
       </JFXButton>
-      <JFXButton fx:id="homeBtn" buttonType="RAISED" contentDisplay="TOP" layoutX="-1.0" layoutY="544.0" onAction="#loadHomeOnAction" prefHeight="118.0" prefWidth="160.0" ripplerFill="#ffffff00" style="-fx-border-width: 0; -fx-background-position: white; -fx-border-color: blue;" text="Home" textFill="#0d15d9">
-         <graphic>
-            <ImageView fitHeight="64.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../image/Homes+by+DJ+Jones+Icon+Only+png.png" />
-               </image>
-            </ImageView>
-         </graphic>
-         <effect>
-            <Shadow />
-         </effect>
-      </JFXButton>
-      <JFXButton fx:id="profileBtn" buttonType="RAISED" contentDisplay="TOP" layoutX="-1.0" layoutY="662.0" onAction="#loadProfileSelectionOnAction" prefHeight="118.0" prefWidth="160.0" ripplerFill="#ffffff00" style="-fx-border-width: 0; -fx-background-position: white; -fx-border-color: blue;" text="Profiles" textFill="#0d15d9">
+      <JFXButton fx:id="profileBtn" buttonType="RAISED" contentDisplay="TOP" layoutX="-1.0" layoutY="544.0" onAction="#loadProfileSelectionOnAction" prefHeight="118.0" prefWidth="160.0" ripplerFill="#ffffff00" style="-fx-border-width: 0; -fx-background-position: white; -fx-border-color: blue;" text="Profiles" textFill="#0d15d9">
          <graphic>
             <ImageView fitHeight="64.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
                <image>

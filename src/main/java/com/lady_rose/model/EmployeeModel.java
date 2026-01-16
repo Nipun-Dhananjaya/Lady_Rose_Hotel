@@ -15,7 +15,7 @@ public class EmployeeModel {
                                       LocalDate dob, String gender, String jobRole, String salary, LocalDate serviceStrtDate,
                                       LocalDate serviceEndDate){
         try {
-            boolean isAffected = CrudUtil.execute("INSERT INTO Employee VALUES(?,?,?,?,?,?,?,?,?,?,?,?);", ID, nic, name,
+            boolean isAffected = CrudUtil.execute("INSERT INTO employee VALUES(?,?,?,?,?,?,?,?,?,?,?,?);", ID, nic, name,
                     gender,address, email, contacts, dob, jobRole, salary, serviceStrtDate, serviceEndDate);
             if (isAffected){
                 return true;
@@ -106,7 +106,7 @@ public class EmployeeModel {
         return data;
     }
     public static List<Employee> getAll() throws SQLException {
-        ResultSet resultSet=CrudUtil.execute("SELECT * FROM employer ORDER BY ID;");
+        ResultSet resultSet=CrudUtil.execute("SELECT * FROM employee ORDER BY ID;");
         List<Employee> data = new ArrayList<>();
 
         while (resultSet.next()) {
