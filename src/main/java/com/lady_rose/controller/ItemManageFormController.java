@@ -27,6 +27,7 @@ public class ItemManageFormController {
     public TableColumn columnQty;
     public TextField qtyTxt;
     public Button addQtyBtn;
+    public Label qtyOnHandLbl;
 
     public void initialize() throws SQLException {
         setCellValueFactory();
@@ -40,7 +41,6 @@ public class ItemManageFormController {
             obList.add(new Item(
                     itm.getItem_ID(),
                     itm.getName(),
-                    itm.getQty(),
                     itm.getQtyOnHand()
             ));
         }
@@ -75,7 +75,7 @@ public class ItemManageFormController {
     public void addItemOnAction(ActionEvent actionEvent) throws SQLException {
         try {
             DBConnection.getInstance().getConnection().setAutoCommit(false);
-            boolean isAdded = ItemModel.addItem(ItemModel.generateID(), nameTxt.getText());
+            boolean isAdded = ItemModel.addItem(ItemModel.generateID(), nameTxt.getText(),Double.parseDouble(qtyOnHandLbl.getText()));
             if (isAdded) {
                 new Alert(Alert.AlertType.INFORMATION, "Item Added Successfully!").showAndWait();
                 DBConnection.getInstance().getConnection().commit();
@@ -93,7 +93,7 @@ public class ItemManageFormController {
     public void updateItemOnAction(ActionEvent actionEvent) throws SQLException {
         try {
             DBConnection.getInstance().getConnection().setAutoCommit(false);
-            boolean isAdded = ItemModel.updateItem(idTxt.getText(), nameTxt.getText());
+            boolean isAdded = ItemModel.updateItem(idTxt.getText(), nameTxt.getText(),Double.parseDouble(qtyOnHandLbl.getText()));
             if (isAdded) {
                 new Alert(Alert.AlertType.INFORMATION, "Item Updated Successfully!").showAndWait();
                 DBConnection.getInstance().getConnection().commit();
