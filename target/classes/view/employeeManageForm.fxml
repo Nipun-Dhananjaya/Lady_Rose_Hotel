@@ -1,20 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToggleGroup?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="employerRoot" prefHeight="722.0" prefWidth="1318.0" style="-fx-border-radius: 0; -fx-background-radius: 0; -fx-border-color: brown;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lady_rose.controller.EmployerManageFormController">
+<AnchorPane fx:id="employerRoot" prefHeight="722.0" prefWidth="1318.0" style="-fx-border-radius: 0; -fx-background-radius: 0; -fx-border-color: brown;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lady_rose.controller.EmployerManageFormController">
     <children>
         <Label layoutX="543.0" layoutY="14.0" text="Employee Manage" textFill="#1410e0">
             <font>
@@ -40,7 +31,7 @@
             </toggleGroup>
         </RadioButton>
         <RadioButton fx:id="femaleRdBtn" layoutX="922.0" layoutY="271.0" mnemonicParsing="false" text="Female" toggleGroup="$gender" />
-        <TableView fx:id="empTbl" layoutX="39.0" layoutY="366.0" prefHeight="350.0" prefWidth="1243.0" style="-fx-border-color: brown;" styleClass="column-header-background">
+        <TableView fx:id="empTbl" layoutX="39.0" layoutY="366.0" onSort="#idSearchOnAction" prefHeight="350.0" prefWidth="1243.0" style="-fx-border-color: brown;" styleClass="column-header-background">
             <columns>
                 <TableColumn fx:id="columnId" prefWidth="62.39999008178711" text="ID" />
                 <TableColumn fx:id="columnName" prefWidth="145.60000610351562" text="Name" />

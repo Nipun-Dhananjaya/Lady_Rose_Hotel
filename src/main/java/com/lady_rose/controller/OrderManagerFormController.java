@@ -1,8 +1,6 @@
 package com.lady_rose.controller;
 
 import com.lady_rose.db.DBConnection;
-import com.lady_rose.model.Employee;
-import com.lady_rose.model.RestaurantOrder;
 import com.lady_rose.regex.RegExPattern;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
@@ -25,7 +23,7 @@ public class OrderManagerFormController {
     }
 
     public void addOrderOnAction(ActionEvent actionEvent) throws SQLException {
-        try {
+        /*try {
             DBConnection.getInstance().getConnection().setAutoCommit(false);
             boolean isAffected=false;
             if (isCorrectPattern()){
@@ -42,7 +40,7 @@ public class OrderManagerFormController {
             DBConnection.getInstance().getConnection().rollback();
         }finally{
             DBConnection.getInstance().getConnection().setAutoCommit(true);
-        }
+        }*/
     }
 
     private boolean isCorrectPattern(){
@@ -53,7 +51,7 @@ public class OrderManagerFormController {
     }
 
     public void updateDetailsOnAction(ActionEvent actionEvent) throws SQLException {
-        try {
+        /*try {
             DBConnection.getInstance().getConnection().setAutoCommit(false);
             boolean isAffected=false;
             if (isCorrectPattern()){
@@ -71,6 +69,6 @@ public class OrderManagerFormController {
             DBConnection.getInstance().getConnection().rollback();
         }finally{
             DBConnection.getInstance().getConnection().setAutoCommit(true);
-        }
+        }*/
     }
 }

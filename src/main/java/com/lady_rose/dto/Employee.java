@@ -20,8 +20,8 @@ public class Employee extends Person{
 
     }
 
-    public Employee(String pId, String name, String nic, String address, String emailAddress, String phoneNumber,
-                    String dob, String gender, String position, String salary, String enteredDate, String resignedDate) {
+    public Employee(String pId, String name, String nic,String emailAddress, String address,  String phoneNumber,
+                    String position,String dob,String enteredDate, String resignedDate,  String salary, String gender) {
         super(pId, name, phoneNumber, emailAddress, address, gender, nic);
         this.position=position;
         this.salary=Double.parseDouble(salary);
