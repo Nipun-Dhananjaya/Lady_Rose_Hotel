@@ -1,7 +1,6 @@
 package com.lady_rose.model;
 
 import com.lady_rose.dto.Item;
-import com.lady_rose.dto.Restaurant_Item;
 import com.lady_rose.util.CrudUtil;
 
 import java.sql.ResultSet;
@@ -9,18 +8,26 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.lady_rose.model.EmployeeModel.stringLength;
-
 public class RestaurantItemModel {
-    public static List<Restaurant_Item> getAll() throws SQLException {
+    public static List<Item> getAll() throws SQLException {
         ResultSet resultSet= CrudUtil.execute("SELECT * FROM item ORDER BY item_code;");
-        List<Restaurant_Item> data = new ArrayList<>();
+        List<Item> data = new ArrayList<>();
 
         while (resultSet.next()) {
-            data.add(new Restaurant_Item(
+            data.add(new Item(
                     resultSet.getString(1),
-                    resultSet.getString(2),
-                    resultSet.getString(3)
+                    resultSet.getString(2)
+            ));
+        }
+        return data;
+    }
+    public static List<ItemDescrip> getAllDescription() throws SQLException {
+        ResultSet resultSet= CrudUtil.execute("SELECT description FROM item;");
+        List<ItemDescrip> data = new ArrayList<>();
+
+        while (resultSet.next()) {
+            data.add(new ItemDescrip(
+                    resultSet.getString(1)
             ));
         }
         return data;
@@ -58,11 +65,11 @@ public class RestaurantItemModel {
         return String.valueOf(number);
     }
 
-    public static boolean addRestaurantItem(String itemCode, String description) {
+    public static boolean addItem(String itemCode, String description) {
         try {
-            if (!(name.matches("^[a-zA-Z][ ]*$") | (!email.matches("^(.+)@(\\S+) $")) | (nic.matches()))){
+            /*if (!(name.matches("^[a-zA-Z][ ]*$") | (!email.matches("^(.+)@(\\S+) $")) | (nic.matches()))){
 
-            }
+            }*/
             boolean isAffected =CrudUtil.execute("INSERT INTO item VALUES(?,?);", itemCode,description);
             if (isAffected){
                 return true;
@@ -74,7 +81,7 @@ public class RestaurantItemModel {
         }
     }
 
-    public static boolean updateRestaurantItem(String itmCode, String description) {
+    public static boolean updateItem(String itmCode, String description) {
         try {
             boolean isAffected =CrudUtil.execute("UPDATE item SET description=? WHERE item_code=?;", description, itmCode);
             if (isAffected){
@@ -88,7 +95,7 @@ public class RestaurantItemModel {
         }
     }
 
-    public static boolean removeRestaurantItem(String itemCode) {
+    public static boolean removeItem(String itemCode) {
         try {
             boolean isAffected = CrudUtil.execute("DELETE FROM item WHERE item_code=?;", itemCode);
             if (isAffected){

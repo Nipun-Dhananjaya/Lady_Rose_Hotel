@@ -8,8 +8,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.lady_rose.model.EmployeeModel.stringLength;
-
 public class ItemModel {
     public static List<Item> getAll() throws SQLException {
         ResultSet resultSet= CrudUtil.execute("SELECT * FROM item ORDER BY item_code;");
@@ -19,6 +17,17 @@ public class ItemModel {
             data.add(new Item(
                     resultSet.getString(1),
                     resultSet.getString(2)
+            ));
+        }
+        return data;
+    }
+    public static List<ItemDescrip> getAllDescription() throws SQLException {
+        ResultSet resultSet= CrudUtil.execute("SELECT description FROM item;");
+        List<ItemDescrip> data = new ArrayList<>();
+
+        while (resultSet.next()) {
+            data.add(new ItemDescrip(
+                    resultSet.getString(1)
             ));
         }
         return data;

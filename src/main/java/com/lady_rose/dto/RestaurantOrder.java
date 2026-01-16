@@ -70,7 +70,7 @@ import java.util.ArrayList;
         public static boolean addRestaurantOrder(String orderID, double quantity, String items, LocalDate billedDate, String billedTime){
             try {
                 boolean isAffected = CrudUtil.execute("INSERT INTO RestaurantOrder VALUES(?,?,?,?,?,?,?,?,?,?,?,?);", orderID, quantity,items,
-                        billedDate, billedTime );
+                        billedDate, billedTime);
                 if (isAffected){
                     return true;
                 }else{
