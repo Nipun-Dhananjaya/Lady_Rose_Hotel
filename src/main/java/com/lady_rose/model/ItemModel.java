@@ -67,9 +67,9 @@ public class ItemModel {
 
     public static boolean addItem(String itemCode, String description) {
         try {
-            /*if (!(name.matches("^[a-zA-Z][ ]*$") | (!email.matches("^(.+)@(\\S+) $")) | (nic.matches()))){
+            *//*if (!(name.matches("^[a-zA-Z][ ]*$") | (!email.matches("^(.+)@(\\S+) $")) | (nic.matches()))){
 
-            }*/
+            }*//*
             boolean isAffected =CrudUtil.execute("INSERT INTO item VALUES(?,?);", itemCode,description);
             if (isAffected){
                 return true;

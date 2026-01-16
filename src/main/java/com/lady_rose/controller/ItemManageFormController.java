@@ -24,6 +24,9 @@ public class ItemManageFormController {
     public Button addBtn;
     public Button updateBtn;
     public Button removeBtn;
+    public TableColumn columnQty;
+    public TextField qtyTxt;
+    public Button addQtyBtn;
 
     public void initialize() throws SQLException {
         setCellValueFactory();
@@ -36,7 +39,9 @@ public class ItemManageFormController {
         for (Item itm : itmList) {
             obList.add(new Item(
                     itm.getItem_ID(),
-                    itm.get()
+                    itm.getName(),
+                    itm.getQty(),
+                    itm.getQtyOnHand()
             ));
         }
         itmTbl.setItems(obList);
@@ -51,8 +56,8 @@ public class ItemManageFormController {
             List<Item> itemList = ItemModel.searchItem(idTxt.getText());
             if (!itemList.isEmpty()){
                 for (Item item : itemList) {
-                    idTxt.setText(item.getItemCode());
-                    nameTxt.setText(item.getItemDescription());
+                    idTxt.setText(item.getItem_ID());
+                    nameTxt.setText(item.getName());
                     idTxt.setDisable(true);
                 }
             }else{
@@ -124,5 +129,8 @@ public class ItemManageFormController {
         }finally{
             DBConnection.getInstance().getConnection().setAutoCommit(true);
         }
+    }
+
+    public void addQtyOnAction(ActionEvent actionEvent) {
     }
 }
