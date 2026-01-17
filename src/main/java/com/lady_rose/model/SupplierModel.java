@@ -1,6 +1,5 @@
 package com.lady_rose.model;
 
-import com.lady_rose.dto.Employee;
 import com.lady_rose.dto.Supplier;
 import com.lady_rose.util.CrudUtil;
 
@@ -13,7 +12,7 @@ import java.util.List;
 public class SupplierModel {
     public static boolean addSupplier(String ID, String name, String address, String email, String contact, String item, LocalDate conStart_Date, LocalDate conEnd_Date){
         try{
-            boolean isAffected = CrudUtil.execute("INSERT INTO Supplier VALUES(?,?,?,?,?,?,?,?,?,?,?,?);", ID, name,
+            boolean isAffected = CrudUtil.execute("INSERT INTO supplier VALUES(?,?,?,?,?,?,?,?,?,?,?,?);", ID, name,
                     address, email, contact, item,conStart_Date,conEnd_Date);
             if (isAffected){
                 return true;
@@ -27,7 +26,7 @@ public class SupplierModel {
 
     public static boolean updateSupplier(String ID, String name, String address, String email, String contact, String item, LocalDate conStart_Date, LocalDate conEnd_Date) {
         try {
-            boolean isAffected =CrudUtil.execute("UPDATE supplier SET sup_name=?,sup_address=?,sup_email=?,sup_contact=?,sup_item=?,conStart_date=?,conEnd_date=? WHERE sup_id=?;", name,
+            boolean isAffected =CrudUtil.execute("UPDATE supplier SET Name=?,Address=?,Email=?,Contact=?,Item=?,C_Start_date=?,C_End_date=? WHERE ID=?;", name,
                     address, email, contact, conStart_Date, conEnd_Date,ID);
             if (isAffected){
                 return true;
@@ -51,9 +50,7 @@ public class SupplierModel {
                     resultSet.getString(3),
                     resultSet.getString(4),
                     resultSet.getString(5),
-                    resultSet.getString(6),
-                    resultSet.getString(7),
-                    resultSet.getString(8)
+                    resultSet.getString(6)
             ));
         }
         return data;
@@ -70,9 +67,8 @@ public class SupplierModel {
                     resultSet.getString(3),
                     resultSet.getString(4),
                     resultSet.getString(5),
-                    resultSet.getString(6),
-                    resultSet.getString(7),
-                    resultSet.getString(8)
+                    resultSet.getString(6)
+
             ));
         }
         return data;

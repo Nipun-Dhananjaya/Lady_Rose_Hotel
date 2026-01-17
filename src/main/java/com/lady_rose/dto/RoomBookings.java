@@ -1,7 +1,9 @@
 package com.lady_rose.dto;
 
 
-    public class RoomBookings {
+import java.time.LocalDate;
+
+public class RoomBookings {
         private String bookingID;
         private String customerId;
         private String roomNo;
@@ -29,6 +31,9 @@ package com.lady_rose.dto;
             this.paymentMethod=paymentMethod;
             this.paymentStatus=paymentStatus;
             this.paymentDate=paymentDate;
+        }
+
+        public RoomBookings(String booking_id, LocalDate booked_date, LocalDate start_date, LocalDate end_date) {
         }
 
         // Getters

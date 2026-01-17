@@ -26,14 +26,14 @@
             <TextField fx:id="sitemTxt" layoutX="759.0" layoutY="157.0" prefHeight="25.0" prefWidth="295.0" promptText="Item" style="-fx-border-color: #964B00; -fx-border-radius: 25; -fx-background-radius: 25;" />
             <TableView fx:id="supplierTable" layoutX="38.0" layoutY="302.0" prefHeight="420.0" prefWidth="1229.0">
               <columns>
-                <TableColumn prefWidth="100.79998397827148" text="ID" />
-                <TableColumn prefWidth="180.40000915527344" text="Name" />
-                  <TableColumn prefWidth="233.39999389648438" text="Address" />
-                  <TableColumn prefWidth="195.39999389648438" text="Email" />
-                  <TableColumn prefWidth="101.5999755859375" text="Contact" />
-                  <TableColumn prefWidth="145.0" text="Item" />
-                  <TableColumn prefWidth="145.199951171875" text="C_Start_Date" />
-                  <TableColumn prefWidth="128.5999755859375" text="C_End_Date" />
+                <TableColumn fx:id="columnID" prefWidth="100.79998397827148" text="ID" />
+                <TableColumn fx:id="columnName" prefWidth="180.40000915527344" text="Name" />
+                  <TableColumn fx:id="columnAddress" prefWidth="233.39999389648438" text="Address" />
+                  <TableColumn fx:id="columnEmail" prefWidth="195.39999389648438" text="Email" />
+                  <TableColumn fx:id="columnContact" prefWidth="101.5999755859375" text="Contact" />
+                  <TableColumn fx:id="columnItem" prefWidth="145.0" text="Item" />
+                  <TableColumn fx:id="columnC_Start_date" prefWidth="145.199951171875" text="C_Start_Date" />
+                  <TableColumn fx:id="columnC_End_date" prefWidth="128.5999755859375" text="C_End_Date" />
               </columns>
             </TableView>
             <Label layoutX="230.0" layoutY="189.0" text="Supplier Address   :" />

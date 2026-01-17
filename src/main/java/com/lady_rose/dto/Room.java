@@ -3,22 +3,23 @@ package com.lady_rose.dto;
 import com.lady_rose.util.CrudUtil;
 import jdk.jfr.Category;
 
+import javax.swing.text.View;
 import java.sql.SQLException;
 import java.time.LocalDate;
 
 public class Room {
     private String R_No;
     private String Category;
-    private String[] pckgeList;
+    private String view;
     private int bedCount;
 
     public Room(){
     }
 
-    public Room(String R_No,String Category,String[] packageList,int bedCount){
+    public Room(String R_No,String Category,String view,int bedCount){
         this.R_No=R_No;
         this.Category=Category;
-        this.pckgeList=pckgeList;
+        this.view= view;
         this.bedCount=bedCount;
     }
 
@@ -38,12 +39,12 @@ public class Room {
         this.Category=Category;
     }
 
-    public String[] getPckgeList(){
-        return pckgeList;
+    public String getView(){
+        return view;
     }
 
-    public void setPckgeList(String[] pckgeList){
-        this.pckgeList=pckgeList;
+    public void setView(String view){
+        this.view=view;
     }
 
     public int getBedCount (){

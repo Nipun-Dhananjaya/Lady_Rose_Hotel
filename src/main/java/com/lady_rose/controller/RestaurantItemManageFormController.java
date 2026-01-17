@@ -1,9 +1,7 @@
 package com.lady_rose.controller;
 
 import com.lady_rose.db.DBConnection;
-import com.lady_rose.dto.Item;
 import com.lady_rose.dto.Restaurant_Item;
-import com.lady_rose.model.ItemModel;
 import com.lady_rose.model.RestaurantItemModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -47,17 +45,18 @@ public class RestaurantItemManageFormController {
         itmTbl.setItems(obList);
     }
     void setCellValueFactory() {
-        columnId.setCellValueFactory(new PropertyValueFactory<>("itemCode"));
-        columnName.setCellValueFactory(new PropertyValueFactory<>("itemDescription"));
+        columnId.setCellValueFactory(new PropertyValueFactory<>("item_ID"));
+        columnName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        columnUnitPrice.setCellValueFactory(new PropertyValueFactory<>("itemUnitPrice"));
     }
     public void idSearchOnAction(ActionEvent actionEvent) throws SQLException {
         try {
             DBConnection.getInstance().getConnection().setAutoCommit(false);
-            List<Item> itemList = ItemModel.searchItem(idTxt.getText());
+            List<Restaurant_Item> itemList = RestaurantItemModel.searchItem(idTxt.getText());
             if (!itemList.isEmpty()){
-                for (Item item : itemList) {
-                    idTxt.setText(item.getItemCode());
-                    nameTxt.setText(item.getItemDescription());
+                for (Restaurant_Item item : itemList) {
+                    idTxt.setText(item.getItem_ID());
+                    nameTxt.setText(item.getName());
                     idTxt.setDisable(true);
                 }
             }else{
@@ -75,7 +74,7 @@ public class RestaurantItemManageFormController {
     public void addItemOnAction(ActionEvent actionEvent) throws SQLException {
         try {
             DBConnection.getInstance().getConnection().setAutoCommit(false);
-            boolean isAdded = RestaurantItemModel.addRestaurantItem(RestaurantItemModel.generateID(), nameTxt.getText());
+            boolean isAdded = RestaurantItemModel.addRestaurantItem(RestaurantItemModel.generateID(), nameTxt.getText(),unitPriceTxt.getText());
             if (isAdded) {
                 new Alert(Alert.AlertType.INFORMATION, "Item Added Successfully!").showAndWait();
                 DBConnection.getInstance().getConnection().commit();
@@ -93,7 +92,7 @@ public class RestaurantItemManageFormController {
     public void updateItemOnAction(ActionEvent actionEvent) throws SQLException {
         try {
             DBConnection.getInstance().getConnection().setAutoCommit(false);
-            boolean isAdded = ItemModel.updateItem(idTxt.getText(), nameTxt.getText());
+            boolean isAdded = RestaurantItemModel.updateRestaurantItem(idTxt.getText(), nameTxt.getText(),unitPriceTxt.getText());
             if (isAdded) {
                 new Alert(Alert.AlertType.INFORMATION, "Item Updated Successfully!").showAndWait();
                 DBConnection.getInstance().getConnection().commit();
@@ -114,7 +113,7 @@ public class RestaurantItemManageFormController {
             DBConnection.getInstance().getConnection().setAutoCommit(false);
             Optional<ButtonType> comfirm=new Alert(Alert.AlertType.CONFIRMATION, "Do you want to remove the room?").showAndWait();
             if (comfirm.isPresent()){
-                boolean isAdded = ItemModel.removeItem(idTxt.getText());
+                boolean isAdded = RestaurantItemModel.removeRestaurantItem(idTxt.getText());
                 if (isAdded) {
                     new Alert(Alert.AlertType.INFORMATION, "Item Removed Successfully!").showAndWait();
                     DBConnection.getInstance().getConnection().commit();

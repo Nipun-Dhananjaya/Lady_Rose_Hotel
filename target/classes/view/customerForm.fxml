@@ -1,18 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.TreeTableColumn?>
-<?import javafx.scene.control.TreeTableView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="custRoot" prefHeight="716.0" prefWidth="1362.4" style="-fx-border-color: brown;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lady_rose.controller.CustomerFormController">
+<AnchorPane fx:id="custRoot" prefHeight="716.0" prefWidth="1362.4" style="-fx-border-color: brown;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lady_rose.controller.CustomerFormController">
    <children>
       <Label layoutX="545.0" layoutY="22.0" text="Customer Manage" textFill="#1148eb">
          <font>
@@ -21,58 +13,55 @@
       </Label>
       <Separator layoutX="48.0" layoutY="66.0" prefHeight="1.0" prefWidth="1275.0" />
       <Label layoutX="180.0" layoutY="104.0" text="Customer Id          :" />
-      <TextField layoutX="170.0" layoutY="121.0" prefHeight="27.0" prefWidth="375.0" promptText="Customer Id" style="-fx-border-radius: 25; -fx-border-color: brown; -fx-background-radius: 25;" />
+      <TextField fx:id="customerIdTxt" layoutX="170.0" layoutY="121.0" prefHeight="27.0" prefWidth="375.0" promptText="Customer Id" style="-fx-border-radius: 25; -fx-border-color: brown; -fx-background-radius: 25;" />
       <Label layoutX="180.0" layoutY="166.0" text="Customer Name    :" />
-      <TextField layoutX="169.0" layoutY="183.0" prefHeight="27.0" prefWidth="375.0" promptText="Customer Name" style="-fx-border-radius: 25; -fx-border-color: brown; -fx-background-radius: 25;" />
-      <TextField layoutX="169.0" layoutY="242.0" prefHeight="27.0" prefWidth="375.0" promptText="NIC" style="-fx-border-radius: 25; -fx-border-color: brown; -fx-background-radius: 25;" />
-      <TextField layoutX="170.0" layoutY="302.0" prefHeight="27.0" prefWidth="375.0" promptText="Address" style="-fx-border-radius: 25; -fx-border-color: brown; -fx-background-radius: 25;" />
-      <TextField layoutX="752.0" layoutY="121.0" prefHeight="27.0" prefWidth="375.0" promptText="Email" style="-fx-border-radius: 25; -fx-border-color: brown; -fx-background-radius: 25;" />
+      <TextField fx:id="customerNameTxt" layoutX="169.0" layoutY="183.0" prefHeight="27.0" prefWidth="375.0" promptText="Customer Name" style="-fx-border-radius: 25; -fx-border-color: brown; -fx-background-radius: 25;" />
+      <TextField fx:id="nicTxt" layoutX="169.0" layoutY="242.0" prefHeight="27.0" prefWidth="375.0" promptText="NIC" style="-fx-border-radius: 25; -fx-border-color: brown; -fx-background-radius: 25;" />
+      <TextField fx:id="addressTxt" layoutX="170.0" layoutY="302.0" prefHeight="27.0" prefWidth="375.0" promptText="Address" style="-fx-border-radius: 25; -fx-border-color: brown; -fx-background-radius: 25;" />
+      <TextField fx:id="emailTxt" layoutX="752.0" layoutY="121.0" prefHeight="27.0" prefWidth="375.0" promptText="Email" style="-fx-border-radius: 25; -fx-border-color: brown; -fx-background-radius: 25;" />
       <ComboBox layoutX="1001.0" layoutY="184.0" prefHeight="25.0" prefWidth="119.0" />
-      <Button layoutX="954.0" layoutY="185.0" mnemonicParsing="false" text="+">
+      <Button fx:id="addContactBtn" layoutX="954.0" layoutY="185.0" mnemonicParsing="false" onAction="#addContactOnAction" text="+">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-      <TextField layoutX="753.0" layoutY="184.0" prefHeight="27.0" prefWidth="190.0" promptText="Contact Number" style="-fx-border-radius: 25; -fx-border-color: brown; -fx-background-radius: 25;" />
-      <RadioButton layoutX="757.0" layoutY="247.0" mnemonicParsing="false" text="Male" />
-      <RadioButton layoutX="834.0" layoutY="247.0" mnemonicParsing="false" text="Female" />
+      <TextField fx:id="contactTxt" layoutX="753.0" layoutY="184.0" prefHeight="27.0" prefWidth="190.0" promptText="Contact Number" style="-fx-border-radius: 25; -fx-border-color: brown; -fx-background-radius: 25;" />
+      <RadioButton fx:id="maleRdBtn" layoutX="757.0" layoutY="247.0" mnemonicParsing="false" text="Male" />
+      <RadioButton fx:id="femaleRdBtn" layoutX="834.0" layoutY="247.0" mnemonicParsing="false" text="Female" />
       <Label layoutX="180.0" layoutY="225.0" text="NIC" />
       <Label layoutX="176.0" layoutY="285.0" text="Address                   :" />
       <Label layoutX="758.0" layoutY="104.0" text="Email                        :" />
       <Label layoutX="759.0" layoutY="168.0" text="Contact Number     :" />
       <Label layoutX="756.0" layoutY="225.0" text="Gender                   :" />
       <Label layoutX="969.0" layoutY="225.0" text="Category              :" />
-      <ChoiceBox fx:id="categoryChoiceBox" layoutX="969.0" layoutY="243.0" nodeOrientation="LEFT_TO_RIGHT" prefWidth="150.0" style="-fx-border-radius: 25;" />
+      <ComboBox fx:id="categoryChoiceBox" layoutX="969.0" layoutY="243.0" prefWidth="150.0" style="-fx-border-radius: 25;" />
       <Label layoutX="280.0" layoutY="225.0" text=":" />
-      <Button layoutX="753.0" layoutY="294.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="125.0" style="-fx-background-color: blue;" text="ADD" textFill="WHITE">
+      <Button fx:id="addBtn" layoutX="753.0" layoutY="294.0" mnemonicParsing="false" onAction="#addCustomerOnAction" prefHeight="33.0" prefWidth="125.0" style="-fx-background-color: blue;" text="ADD" textFill="WHITE">
          <font>
             <Font name="Arial Narrow Bold" size="13.0" />
          </font>
       </Button>
-      <Button layoutX="881.0" layoutY="294.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="125.0" style="-fx-background-color: red;" text="CLEAR" textFill="WHITE">
+      <Button fx:id="clearBtn" layoutX="881.0" layoutY="294.0" mnemonicParsing="false" onAction="#clearCustomerOnAction" prefHeight="33.0" prefWidth="125.0" style="-fx-background-color: red;" text="CLEAR" textFill="WHITE">
          <font>
             <Font name="Arial Narrow Bold" size="13.0" />
          </font>
       </Button>
-      <Button layoutX="1008.0" layoutY="294.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="125.0" style="-fx-background-color: green;" text="UPDATE" textFill="WHITE">
+      <Button fx:id="updateBtn" layoutX="1008.0" layoutY="294.0" mnemonicParsing="false" onAction="#updateCustomerOnAction" prefHeight="33.0" prefWidth="125.0" style="-fx-background-color: green;" text="UPDATE" textFill="WHITE">
          <font>
             <Font name="Arial Narrow Bold" size="13.0" />
          </font>
       </Button>
-      <TreeTableView layoutX="29.0" layoutY="398.0" prefHeight="285.0" prefWidth="1291.0" style="-fx-border-color: brown;">
-        <columns>
-          <TreeTableColumn prefWidth="75.0" text="ID" />
-          <TreeTableColumn prefWidth="75.0" text="Name" />
-            <TreeTableColumn prefWidth="75.0" text="NIC" />
-            <TreeTableColumn prefWidth="75.0" text="Address" />
-            <TreeTableColumn prefWidth="75.0" text="Email" />
-            <TreeTableColumn prefWidth="75.0" text="Contact" />
-            <TreeTableColumn prefWidth="75.0" text="Gender" />
-            <TreeTableColumn prefWidth="75.0" text="Category" />
-        </columns>
-         <columnResizePolicy>
-            <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-         </columnResizePolicy>
-      </TreeTableView>
+      <TableView fx:id="customerTbl" layoutX="29.0" layoutY="398.0" prefHeight="285.0" prefWidth="1291.0" style="-fx-border-color: brown;">
+         <columns>
+            <TableColumn fx:id="columnId" prefWidth="75.0" text="ID" />
+            <TableColumn fx:id="columnName" prefWidth="120.0" text="Name" />
+            <TableColumn fx:id="columnNic" prefWidth="100.0" text="NIC" />
+            <TableColumn fx:id="columnAddress" prefWidth="150.0" text="Address" />
+            <TableColumn fx:id="columnEmail" prefWidth="150.0" text="Email" />
+            <TableColumn fx:id="columnContact" prefWidth="120.0" text="Contact" />
+            <TableColumn fx:id="columnGender" prefWidth="80.0" text="Gender" />
+            <TableColumn fx:id="columnCategory" prefWidth="100.0" text="Category" />
+         </columns>
+      </TableView>
       <Separator layoutX="941.0" layoutY="219.0" orientation="VERTICAL" prefHeight="56.0" prefWidth="4.0" />
    </children>
 </AnchorPane>

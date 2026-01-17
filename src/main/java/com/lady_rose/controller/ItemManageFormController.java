@@ -24,6 +24,10 @@ public class ItemManageFormController {
     public Button addBtn;
     public Button updateBtn;
     public Button removeBtn;
+    public TableColumn columnQty;
+    public TextField qtyTxt;
+    public Button addQtyBtn;
+    public Label qtyOnHandLbl;
 
     public void initialize() throws SQLException {
         setCellValueFactory();
@@ -36,14 +40,16 @@ public class ItemManageFormController {
         for (Item itm : itmList) {
             obList.add(new Item(
                     itm.getItem_ID(),
-                    itm.get()
+                    itm.getName(),
+                    itm.getQtyOnHand()
             ));
         }
         itmTbl.setItems(obList);
     }
     void setCellValueFactory() {
-        columnId.setCellValueFactory(new PropertyValueFactory<>("itemCode"));
-        columnName.setCellValueFactory(new PropertyValueFactory<>("itemDescription"));
+        columnId.setCellValueFactory(new PropertyValueFactory<>("item_ID"));
+        columnName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        columnName.setCellValueFactory(new PropertyValueFactory<>("qtyOnHand"));
     }
     public void idSearchOnAction(ActionEvent actionEvent) throws SQLException {
         try {
@@ -51,8 +57,8 @@ public class ItemManageFormController {
             List<Item> itemList = ItemModel.searchItem(idTxt.getText());
             if (!itemList.isEmpty()){
                 for (Item item : itemList) {
-                    idTxt.setText(item.getItemCode());
-                    nameTxt.setText(item.getItemDescription());
+                    idTxt.setText(item.getItem_ID());
+                    nameTxt.setText(item.getName());
                     idTxt.setDisable(true);
                 }
             }else{
@@ -70,9 +76,10 @@ public class ItemManageFormController {
     public void addItemOnAction(ActionEvent actionEvent) throws SQLException {
         try {
             DBConnection.getInstance().getConnection().setAutoCommit(false);
-            boolean isAdded = ItemModel.addItem(ItemModel.generateID(), nameTxt.getText());
+            boolean isAdded = ItemModel.addItem(ItemModel.generateID(), nameTxt.getText(),Double.parseDouble(qtyOnHandLbl.getText()));
             if (isAdded) {
                 new Alert(Alert.AlertType.INFORMATION, "Item Added Successfully!").showAndWait();
+                resetPage();
                 DBConnection.getInstance().getConnection().commit();
             } else {
                 new Alert(Alert.AlertType.WARNING, "Re-Check Submitted Details!").showAndWait();
@@ -88,11 +95,12 @@ public class ItemManageFormController {
     public void updateItemOnAction(ActionEvent actionEvent) throws SQLException {
         try {
             DBConnection.getInstance().getConnection().setAutoCommit(false);
-            boolean isAdded = ItemModel.updateItem(idTxt.getText(), nameTxt.getText());
+            boolean isAdded = ItemModel.updateItem(idTxt.getText(), nameTxt.getText(),Double.parseDouble(qtyOnHandLbl.getText()));
             if (isAdded) {
                 new Alert(Alert.AlertType.INFORMATION, "Item Updated Successfully!").showAndWait();
                 DBConnection.getInstance().getConnection().commit();
                 idTxt.setDisable(false);
+                resetPage();
             } else {
                 new Alert(Alert.AlertType.WARNING, "Re-Check Submitted Details!").showAndWait();
             }
@@ -114,6 +122,7 @@ public class ItemManageFormController {
                     new Alert(Alert.AlertType.INFORMATION, "Item Removed Successfully!").showAndWait();
                     DBConnection.getInstance().getConnection().commit();
                     idTxt.setDisable(false);
+                    resetPage();
                 } else {
                     new Alert(Alert.AlertType.WARNING, "Re-Check Submitted Details!").showAndWait();
                 }
@@ -124,5 +133,22 @@ public class ItemManageFormController {
         }finally{
             DBConnection.getInstance().getConnection().setAutoCommit(true);
         }
+    }
+
+    public void addQtyOnAction(ActionEvent actionEvent) {
+        qtyOnHandLbl.setText(String.valueOf(Double.parseDouble(qtyOnHandLbl.getText())+
+                Double.parseDouble(qtyTxt.getText())));
+        addBtn.setDisable(true);
+    }
+
+
+    public void resetPage() throws SQLException {
+        idTxt.setText("");
+        nameTxt.setText("");
+        qtyOnHandLbl.setText("0.0");
+        qtyTxt.setText("");
+        addBtn.setDisable(false);
+        setCellValueFactory();
+        getAllItems();
     }
 }
