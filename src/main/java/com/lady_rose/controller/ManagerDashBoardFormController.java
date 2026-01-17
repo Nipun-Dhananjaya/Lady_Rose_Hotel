@@ -25,7 +25,6 @@ public class ManagerDashBoardFormController {
     public JFXButton roomsBtn;
     public JFXButton suppliersBtn;
     public JFXButton ordersBtn;
-    public JFXButton homeBtn;
     public JFXButton profileBtn;
     public Label dateLbl;
     public Label timeLbl;

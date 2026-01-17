@@ -78,6 +78,7 @@ public class ItemManageFormController {
             boolean isAdded = ItemModel.addItem(ItemModel.generateID(), nameTxt.getText(),Double.parseDouble(qtyOnHandLbl.getText()));
             if (isAdded) {
                 new Alert(Alert.AlertType.INFORMATION, "Item Added Successfully!").showAndWait();
+                resetPage();
                 DBConnection.getInstance().getConnection().commit();
             } else {
                 new Alert(Alert.AlertType.WARNING, "Re-Check Submitted Details!").showAndWait();
@@ -98,6 +99,7 @@ public class ItemManageFormController {
                 new Alert(Alert.AlertType.INFORMATION, "Item Updated Successfully!").showAndWait();
                 DBConnection.getInstance().getConnection().commit();
                 idTxt.setDisable(false);
+                resetPage();
             } else {
                 new Alert(Alert.AlertType.WARNING, "Re-Check Submitted Details!").showAndWait();
             }
@@ -119,6 +121,7 @@ public class ItemManageFormController {
                     new Alert(Alert.AlertType.INFORMATION, "Item Removed Successfully!").showAndWait();
                     DBConnection.getInstance().getConnection().commit();
                     idTxt.setDisable(false);
+                    resetPage();
                 } else {
                     new Alert(Alert.AlertType.WARNING, "Re-Check Submitted Details!").showAndWait();
                 }
@@ -132,5 +135,19 @@ public class ItemManageFormController {
     }
 
     public void addQtyOnAction(ActionEvent actionEvent) {
+        qtyOnHandLbl.setText(String.valueOf(Double.parseDouble(qtyOnHandLbl.getText())+
+                Double.parseDouble(qtyTxt.getText())));
+        addBtn.setDisable(true);
+    }
+
+
+    public void resetPage() throws SQLException {
+        idTxt.setText("");
+        nameTxt.setText("");
+        qtyOnHandLbl.setText("0.0");
+        qtyTxt.setText("");
+        addBtn.setDisable(false);
+        setCellValueFactory();
+        getAllItems();
     }
 }
