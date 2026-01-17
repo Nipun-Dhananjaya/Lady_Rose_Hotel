@@ -7,7 +7,7 @@
 
 <AnchorPane fx:id="employerRoot" prefHeight="722.0" prefWidth="1318.0" style="-fx-border-radius: 0; -fx-background-radius: 0; -fx-border-color: brown;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lady_rose.controller.EmployerManageFormController">
     <children>
-        <Label layoutX="543.0" layoutY="14.0" text="Employee Manage" textFill="#1410e0">
+        <Label layoutX="530.0" layoutY="14.0" text="Employee Manage" textFill="#1410e0">
             <font>
                 <Font name="Berlin Sans FB Demi Bold" size="28.0" />
             </font>

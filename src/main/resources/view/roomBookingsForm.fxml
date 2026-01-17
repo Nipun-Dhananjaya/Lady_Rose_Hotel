@@ -30,14 +30,14 @@
          </font></Label>
       <DatePicker fx:id="dpStartDate" layoutX="681.0" layoutY="118.0" prefHeight="27.0" prefWidth="304.0" style="-fx-border-color: #c0392b;" />
       <DatePicker fx:id="dpEndDate" layoutX="681.0" layoutY="190.0" prefHeight="27.0" prefWidth="304.0" style="-fx-border-color: #c0392b;" />
-      <Button fx:id="btnUpdate" layoutX="833.0" layoutY="250.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="120.0" style="-fx-background-color: #2530b4;" text="Update" textFill="WHITE" />
-      <Button fx:id="btnSave" layoutX="681.0" layoutY="250.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="120.0" style="-fx-background-color: #25b454;" text="Save" textFill="WHITE" />
-      <TableView editable="true" layoutX="246.0" layoutY="299.0" prefHeight="363.0" prefWidth="869.0">
+      <Button fx:id="btnUpdate" layoutX="833.0" layoutY="250.0" mnemonicParsing="false" onAction="#updateBookingOnAction" prefHeight="26.0" prefWidth="120.0" style="-fx-background-color: #2530b4;" text="Update" textFill="WHITE" />
+      <Button fx:id="btnSave" layoutX="681.0" layoutY="250.0" mnemonicParsing="false" onAction="#saveBookingOnAction" prefHeight="26.0" prefWidth="120.0" style="-fx-background-color: #25b454;" text="Save" textFill="WHITE" />
+      <TableView editable="true" layoutX="14.0" layoutY="299.0" prefHeight="363.0" prefWidth="1321.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="Booking ID" />
-          <TableColumn prefWidth="110.20002746582031" text="Booked Date " />
-            <TableColumn prefWidth="110.20002746582031" text="Start Date " />
-            <TableColumn prefWidth="110.20002746582031" text="End Date " />
+          <TableColumn fx:id="columnbookingid" prefWidth="75.0" text="Booking ID" />
+          <TableColumn fx:id="columnbookeddate" prefWidth="110.20002746582031" text="Booked Date " />
+            <TableColumn fx:id="columnstartdate" prefWidth="110.20002746582031" text="Start Date " />
+            <TableColumn fx:id="columnenddate" prefWidth="110.20002746582031" text="End Date " />
         </columns>
       </TableView>
    </children>
