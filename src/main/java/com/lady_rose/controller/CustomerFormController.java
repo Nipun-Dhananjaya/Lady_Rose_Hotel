@@ -42,9 +42,8 @@ public class CustomerFormController {
     public TableColumn columnEmail;
     public TableColumn columnContact;
     public TableColumn columnGender;
-    public TableColumn columnCategory;// Optional: if you want to add multiple contacts per customer
+    public TableColumn columnCategory;
 
-    static String currentContact; // To hold the contact being added/edited
 
     // Initialize categories (you can load from DB later)
     private void initializeCategories() {
@@ -276,32 +275,12 @@ public class CustomerFormController {
             return;
         }
 
-        // For now, just validate and show success — since we're storing one contact per customer
-        // You could modify this to store multiple contacts in a list if needed
+
         new Alert(Alert.AlertType.INFORMATION, "Contact added: " + contact).showAndWait();
-        // Optionally, you can append to a list and display in a separate list or combo box
+
     }
 }
-/*
-    // Optional: Select row from table to populate fields
-    public void customerTblOnMouseClicked(javafx.scene.input.MouseEvent mouseEvent) {
-        Customer selected = customerTbl.getSelectionModel().getSelectedItem();
-        if (selected != null) {
-            customerIdTxt.setText(selected.getId());
-            customerNameTxt.setText(selected.getName());
-            nicTxt.setText(selected.getNic());
-            addressTxt.setText(selected.getAddress());
-            emailTxt.setText(selected.getEmail());
-            contactTxt.setText(selected.getContact());
 
-            if ("MALE".equals(selected.getGender())) {
-                maleRdBtn.setSelected(true);
-            } else {
-                femaleRdBtn.setSelected(true);
-            }
-
-            categoryCmbBx.setValue(selected.getCategory());
-        }*/
 
 
 
