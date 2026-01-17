@@ -10,7 +10,7 @@ public class ChangeUserModel {
         String userId="";
         try {
             System.out.println(jobroll);
-            ResultSet result = CrudUtil.execute("SELECT user_id FROM user WHERE user_name=? AND password=? AND job_role=?;", oldUserName, oldPassword, jobroll);
+            ResultSet result = CrudUtil.execute("SELECT user_id FROM user WHERE username=? AND password=? AND job_role=?;", oldUserName, oldPassword, jobroll);
             while (result.next()) {
                 System.out.println("Inside");
                 userId = result.getString(1);
