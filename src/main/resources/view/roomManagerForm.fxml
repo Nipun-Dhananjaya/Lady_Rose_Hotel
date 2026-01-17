@@ -15,21 +15,21 @@
             </Label>
             <Separator layoutY="51.0" prefWidth="1298.0" />
             <Label layoutX="252.0" layoutY="79.0" text="Room Number      :" />
-            <TextField fx:id="rNoTxt" layoutX="252.0" layoutY="96.0" prefHeight="25.0" prefWidth="295.0" promptText="Room number" style="-fx-border-color: #964B00; -fx-border-radius: 25; -fx-background-radius: 25;" />
+            <TextField fx:id="roomNoTxt" layoutX="252.0" layoutY="96.0" prefHeight="25.0" prefWidth="295.0" promptText="Room number" style="-fx-border-color: #964B00; -fx-border-radius: 25; -fx-background-radius: 25;" />
             <Label layoutX="252.0" layoutY="137.0" text="Room Category      :" />
-            <ComboBox fx:id="rmctgyTxt" editable="true" layoutX="252.0" layoutY="154.0" prefWidth="150.0" style="-fx-border-color: #964B00;" visibleRowCount="5" />
+            <ComboBox fx:id="roomCtgyCmbBx" editable="true" layoutX="252.0" layoutY="154.0" prefWidth="150.0" style="-fx-border-color: #964B00;" visibleRowCount="5" />
             <TableView layoutX="45.0" layoutY="242.0" prefHeight="469.0" prefWidth="1202.0">
               <columns>
-                <TableColumn prefWidth="206.0" text="Room_No" />
-                <TableColumn minWidth="0.0" prefWidth="346.0" text="Room_Category" />
-                  <TableColumn prefWidth="278.0" text="Bed_Count" />
-                  <TableColumn prefWidth="369.0" text="Room_View" />
+                <TableColumn fx:id="columnRoomNo" prefWidth="206.0" text="Room_No" />
+                <TableColumn fx:id="columnCategory" minWidth="0.0" prefWidth="346.0" text="Room_Category" />
+                  <TableColumn fx:id="columnBedCount" prefWidth="278.0" text="Bed_Count" />
+                  <TableColumn fx:id="columnView" prefWidth="369.0" text="Room_View" />
               </columns>
             </TableView>
             <Label layoutX="717.0" layoutY="79.0" text="Bed Count  :" />
-            <TextField fx:id="rNoTxt1" layoutX="717.0" layoutY="96.0" prefHeight="25.0" prefWidth="295.0" promptText="Bed Count" style="-fx-border-color: #964B00; -fx-border-radius: 25; -fx-background-radius: 25;" />
+            <TextField fx:id="bedCountTxt" layoutX="717.0" layoutY="96.0" prefHeight="25.0" prefWidth="295.0" promptText="Bed Count" style="-fx-border-color: #964B00; -fx-border-radius: 25; -fx-background-radius: 25;" />
             <Label layoutX="717.0" layoutY="137.0" text="Room View  :" />
-            <ComboBox fx:id="rmctgyTxt1" editable="true" layoutX="717.0" layoutY="154.0" prefWidth="150.0" style="-fx-border-color: #964B00;" visibleRowCount="5" />
+            <ComboBox fx:id="roomViewCmbBx" editable="true" layoutX="717.0" layoutY="154.0" prefWidth="150.0" style="-fx-border-color: #964B00;" visibleRowCount="5" />
             <Button fx:id="addbtn" layoutX="726.0" layoutY="201.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="105.0" style="-fx-background-color: #4CAF50; -fx-border-color: #000000;" text="Add" />
             <Button fx:id="updtbtn" layoutX="847.0" layoutY="201.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="105.0" style="-fx-background-color: #0D2EFF; -fx-border-color: #000000;" text="Update" />
          </children>

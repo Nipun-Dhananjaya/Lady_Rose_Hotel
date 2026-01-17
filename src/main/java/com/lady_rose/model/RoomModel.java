@@ -36,7 +36,7 @@ public class RoomModel {
         }
     }
 
-    /*public static List<Room> searchRoom(String R_No) throws SQLException {
+    public static List<Room> searchRoom(String R_No) throws SQLException {
         ResultSet resultSet=CrudUtil.execute("SELECT * FROM room WHERE emp_id=?;",R_No);
         List<Room> data = new ArrayList<>();
 
@@ -49,9 +49,9 @@ public class RoomModel {
             ));
         }
         return data;
-    }*/
+    }
 
-    /*public static List<Room> getAll() throws SQLException {
+    public static List<Room> getAll() throws SQLException {
         ResultSet resultSet=CrudUtil.execute("SELECT * FROM room ORDER BY R_no;");
         List<Room> data = new ArrayList<>();
 
@@ -64,5 +64,5 @@ public class RoomModel {
             ));
         }
         return data;
-    }*/
+    }
 }
