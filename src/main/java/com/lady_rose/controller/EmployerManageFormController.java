@@ -155,6 +155,7 @@ public class EmployerManageFormController {
             }
             if (isAffected) {
                 new Alert(Alert.AlertType.INFORMATION, "Employee Added!").showAndWait();
+                resetPage();
                 DBConnection.getInstance().getConnection().commit();
             } else {
                 new Alert(Alert.AlertType.WARNING, "Re-Check Submitted Details!").showAndWait();
@@ -211,6 +212,7 @@ public class EmployerManageFormController {
                 new Alert(Alert.AlertType.INFORMATION, "Employer Updated!").showAndWait();
                 DBConnection.getInstance().getConnection().commit();
                 idTxt.setDisable(false);
+                resetPage();
             } else {
                 new Alert(Alert.AlertType.WARNING, "Re-Check Submitted Details!").showAndWait();
             }
@@ -225,5 +227,19 @@ public class EmployerManageFormController {
     public void setTxtBxValueOnAction(ActionEvent actionEvent) {
         contactTxt.setText(String.valueOf(contactCmbBx.getSelectionModel().getSelectedItem()));
         con = contactTxt.getText();
+    }
+    public void resetPage() throws SQLException {
+        idTxt.setText("");
+        nameTxt.setText("");
+        nicTxt.setText("");
+        emailTxt.setText("");
+        addressTxt.setText("");
+        contactTxt.setText("");
+        emailTxt.setText("");
+        jobRolTxt.setText("");
+        empSalary.setText("");
+        Employee.contact.clear();
+        setCellValueFactory();
+        getAllEmployers();
     }
 }

@@ -1,8 +1,7 @@
 package com.lady_rose.controller;
 
 import com.lady_rose.db.DBConnection;
-import com.lady_rose.model.Employee;
-import com.lady_rose.model.Room;
+import com.lady_rose.model.RoomModel;
 import com.lady_rose.regex.RegExPattern;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
@@ -28,7 +27,7 @@ public class RoomManagerFormController {
             DBConnection.getInstance().getConnection().setAutoCommit(false);
             boolean isAffected = false;
             if (isCorrectPattern()) {
-                isAffected = Room.addRoom(roomNoTxt.getText(),roomCtgyCmbBx.getSelectionModel().getSelectedItem(),bedCountTxt.getText(),roomViewCmbBx.getSelectionModel().getSelectedItem());
+                isAffected = RoomModel.addRoom(roomNoTxt.getText(),roomCtgyCmbBx.getSelectionModel().getSelectedItem(),bedCountTxt.getText(),roomViewCmbBx.getSelectionModel().getSelectedItem());
             }
             if (isAffected) {
                 new Alert(Alert.AlertType.INFORMATION, "Room Added!").showAndWait();
@@ -56,7 +55,7 @@ public class RoomManagerFormController {
             DBConnection.getInstance().getConnection().setAutoCommit(false);
             boolean isAffected=false;
             if (isCorrectPattern()){
-                isAffected= Room.updateRoom(roomNoTxt.getText(),roomCtgyCmbBx.getSelectionModel().getSelectedItem(),bedCountTxt.getText(),roomViewCmbBx.getSelectionModel().getSelectedItem());
+                isAffected= RoomModel.updateRoom(roomNoTxt.getText(),roomCtgyCmbBx.getSelectionModel().getSelectedItem(),bedCountTxt.getText(),roomViewCmbBx.getSelectionModel().getSelectedItem());
             }
             if (isAffected) {
                 new Alert(Alert.AlertType.INFORMATION, "Room Updated!").showAndWait();

@@ -59,32 +59,4 @@ public class Supplier {
     public void setConEnd_Date(String conEnd_Date) {
         this.conEnd_Date = conEnd_Date;
     }
-
-    public static boolean addSupplier(String ID, String name, String address, String email, String contact, String item, LocalDate conStart_Date, LocalDate conEnd_Date){
-        try{
-            boolean isAffected = CrudUtil.execute("INSERT INTO Supplier VALUES(?,?,?,?,?,?,?,?,?,?,?,?);", ID, name,
-                    address, email, contact, item,conStart_Date,conEnd_Date);
-            if (isAffected){
-                return true;
-            }else{
-                return false;
-            }
-        }catch (SQLException e) {
-            return false;
-        }
-    }
-
-    public static boolean updateSupplier(String ID, String name, String address, String email, String contact, String item, LocalDate conStart_Date, LocalDate conEnd_Date) {
-        try {
-            boolean isAffected =CrudUtil.execute("UPDATE supplier SET sup_name=?,sup_address=?,sup_email=?,sup_contact=?,sup_item=?,conStart_date=?,conEnd_date=? WHERE sup_id=?;", name,
-                     address, email, contact, conStart_Date, conEnd_Date,ID);
-            if (isAffected){
-                return true;
-            }else{
-                return false;
-            }
-        } catch (SQLException e) {
-            return false;
-        }
-    }
 }

@@ -15,7 +15,7 @@ public class EmployeeModel {
                                       LocalDate dob, String gender, String jobRole, String salary, LocalDate serviceStrtDate,
                                       LocalDate serviceEndDate){
         try {
-            boolean isAffected = CrudUtil.execute("INSERT INTO Employee VALUES(?,?,?,?,?,?,?,?,?,?,?,?);", ID, nic, name,
+            boolean isAffected = CrudUtil.execute("INSERT INTO employee VALUES(?,?,?,?,?,?,?,?,?,?,?,?);", ID, nic, name,
                     gender,address, email, contacts, dob, jobRole, salary, serviceStrtDate, serviceEndDate);
             if (isAffected){
                 return true;
@@ -30,7 +30,7 @@ public class EmployeeModel {
                                          LocalDate dob, String gender, String jobRole, String salary, LocalDate serviceStrtDate,
                                          LocalDate serviceEndDate) {
         try {
-            boolean isAffected =CrudUtil.execute("UPDATE employer SET emp_name=?,emp_nic=?,emp_address=?,emp_email=?,emp_contact=?,emp_dob=?,gender=?,job_role=?,monthly_salary=?,entered_date=?,service_end_date=? WHERE emp_id=?;", name,
+            boolean isAffected =CrudUtil.execute("UPDATE employee SET Name=?,NIC=?,Address=?,Email=?,Contact=?,DateOfBirth=?,Gender=?,Job_role=?,Salary=?,Start_Date=?,End_Date=? WHERE ID=?;", name,
                     nic, address, email, contacts, dob, gender, jobRole, salary, serviceStrtDate, serviceEndDate,ID);
             if (isAffected){
                 return true;
@@ -55,7 +55,7 @@ public class EmployeeModel {
         String[] idParts;
         String id="E-00000";
         try {
-            result= CrudUtil.execute("SELECT emp_id FROM employer ORDER BY emp_id DESC LIMIT 1");
+            result= CrudUtil.execute("SELECT ID FROM employee ORDER BY ID DESC LIMIT 1");
             if(result.next()) {
                 id=result.getString(1);
             }
@@ -84,7 +84,7 @@ public class EmployeeModel {
     }
 
     public static List<Employee> searchEmployee(String empId) throws SQLException {
-        ResultSet resultSet=CrudUtil.execute("SELECT * FROM employer WHERE emp_id=?;",empId);
+        ResultSet resultSet=CrudUtil.execute("SELECT * FROM employee WHERE ID=?;",empId);
         List<Employee> data = new ArrayList<>();
 
         while (resultSet.next()) {
@@ -106,7 +106,7 @@ public class EmployeeModel {
         return data;
     }
     public static List<Employee> getAll() throws SQLException {
-        ResultSet resultSet=CrudUtil.execute("SELECT * FROM employer ORDER BY emp_id;");
+        ResultSet resultSet=CrudUtil.execute("SELECT * FROM employee ORDER BY ID;");
         List<Employee> data = new ArrayList<>();
 
         while (resultSet.next()) {
