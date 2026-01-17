@@ -9,13 +9,13 @@ import java.time.LocalDate;
 public class Room {
     private String R_No;
     private String Category;
-    private String[] pckgeList;
+    private String pckgeList;
     private int bedCount;
 
     public Room(){
     }
 
-    public Room(String R_No,String Category,String[] packageList,int bedCount){
+    public Room(String R_No,String Category,String packageList,int bedCount){
         this.R_No=R_No;
         this.Category=Category;
         this.pckgeList=pckgeList;
@@ -38,11 +38,11 @@ public class Room {
         this.Category=Category;
     }
 
-    public String[] getPckgeList(){
+    public String getPckgeList(){
         return pckgeList;
     }
 
-    public void setPckgeList(String[] pckgeList){
+    public void setPckgeList(String pckgeList){
         this.pckgeList=pckgeList;
     }
 

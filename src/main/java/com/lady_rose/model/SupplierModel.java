@@ -51,9 +51,7 @@ public class SupplierModel {
                     resultSet.getString(3),
                     resultSet.getString(4),
                     resultSet.getString(5),
-                    resultSet.getString(6),
-                    resultSet.getString(7),
-                    resultSet.getString(8)
+                    resultSet.getString(6)
             ));
         }
         return data;
@@ -70,9 +68,8 @@ public class SupplierModel {
                     resultSet.getString(3),
                     resultSet.getString(4),
                     resultSet.getString(5),
-                    resultSet.getString(6),
-                    resultSet.getString(7),
-                    resultSet.getString(8)
+                    resultSet.getString(6)
+
             ));
         }
         return data;

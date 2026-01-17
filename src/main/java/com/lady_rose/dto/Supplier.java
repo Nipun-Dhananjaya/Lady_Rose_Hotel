@@ -8,17 +8,17 @@ import java.time.LocalDate;
 public class Supplier {
     private String s_ID;
     private String name;
-    private String[] itemList;
+    private String item;
     private String conStart_Date;
     private String conEnd_Date;
 
-    public Supplier(){
+    public Supplier(String string, String resultSetString, String setString, String s, String string1, String resultSetString1){
     }
 
-    public Supplier(String s_ID,String name,String[] itemList,String conStart_Date,String conEnd_Date){
+    public Supplier(String s_ID,String name,String item,String conStart_Date,String conEnd_Date){
         this.s_ID=s_ID;
         this.name=name;
-        this.itemList=itemList;
+        this.item=item;
         this.conStart_Date=conStart_Date;
         this.conEnd_Date=conEnd_Date;
     }
@@ -37,11 +37,11 @@ public class Supplier {
         this.name = name;
     }
 
-    public String[] getItemList() {
-        return itemList;
+    public String getItemList() {
+        return item;
     }
-    public void setItemList(String[] itemList) {
-        this.itemList = itemList;
+    public void setItemList(String itemList) {
+        this.item = item;
     }
 
     public String getConStart_Date() {

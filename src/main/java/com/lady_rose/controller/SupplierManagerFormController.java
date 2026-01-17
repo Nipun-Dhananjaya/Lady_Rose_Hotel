@@ -1,6 +1,7 @@
 package com.lady_rose.controller;
 
 import com.lady_rose.db.DBConnection;
+import com.lady_rose.model.SupplierModel;
 import com.lady_rose.regex.RegExPattern;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
@@ -53,11 +54,11 @@ public class SupplierManagerFormController {
     }
 
     public void updateSupplierOnAction(ActionEvent actionEvent) throws SQLException {
-        /*try {
+        try {
             DBConnection.getInstance().getConnection().setAutoCommit(false);
             boolean isAffected=false;
             if (isCorrectPattern()){
-                isAffected= Supplier.updateSupplier(supplierTxt.getId(),snameTxt.getText(),saddrsTxt.getText(),smilTxt.getText(),scontctTxt.getText(),sitemTxt.getText(),sDteTxt.getValue(),eDtTxt.getValue());
+                isAffected= SupplierModel.updateSupplier(supplierTxt.getId(),snameTxt.getText(),saddrsTxt.getText(),smilTxt.getText(),scontctTxt.getText(),sitemTxt.getText(),sDteTxt.getValue(),eDtTxt.getValue());
             }
 
             if (isAffected) {
@@ -72,7 +73,7 @@ public class SupplierManagerFormController {
             DBConnection.getInstance().getConnection().rollback();
         }finally{
             DBConnection.getInstance().getConnection().setAutoCommit(true);
-        }*/
+        }
     }
 
 
