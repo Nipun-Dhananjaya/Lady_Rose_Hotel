@@ -1,6 +1,5 @@
 package com.lady_rose.model;
 
-import com.lady_rose.dto.Employee;
 import com.lady_rose.dto.Supplier;
 import com.lady_rose.util.CrudUtil;
 
@@ -40,7 +39,7 @@ public class SupplierModel {
     }
 
 
-    /*public static List<Supplier> searchSupplier(String S_Id) throws SQLException {
+    public static List<Supplier> searchSupplier(String S_Id) throws SQLException {
         ResultSet resultSet=CrudUtil.execute("SELECT * FROM supplier WHERE sup_id=?;",S_Id);
         List<Supplier> data = new ArrayList<>();
 
@@ -73,5 +72,5 @@ public class SupplierModel {
             ));
         }
         return data;
-    }*/
+    }
 }

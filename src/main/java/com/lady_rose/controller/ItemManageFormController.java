@@ -47,8 +47,9 @@ public class ItemManageFormController {
         itmTbl.setItems(obList);
     }
     void setCellValueFactory() {
-        columnId.setCellValueFactory(new PropertyValueFactory<>("itemCode"));
-        columnName.setCellValueFactory(new PropertyValueFactory<>("itemDescription"));
+        columnId.setCellValueFactory(new PropertyValueFactory<>("item_ID"));
+        columnName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        columnName.setCellValueFactory(new PropertyValueFactory<>("qtyOnHand"));
     }
     public void idSearchOnAction(ActionEvent actionEvent) throws SQLException {
         try {
