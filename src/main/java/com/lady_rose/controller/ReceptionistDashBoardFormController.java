@@ -26,7 +26,6 @@ public class ReceptionistDashBoardFormController {
     public Label dateLbl;
     public Label timeLbl;
     public JFXButton spaBookingBtn;
-    public JFXButton homeBtn;
     public JFXButton profileBtn;
 
     public void initialize() throws IOException {
@@ -65,8 +64,5 @@ public class ReceptionistDashBoardFormController {
         stage.setScene(new Scene(anchorPane));
         stage.setTitle("Profile Selection");
         stage.centerOnScreen();
-    }
-
-    public void loadHomeOnAction(ActionEvent actionEvent) {
     }
 }
