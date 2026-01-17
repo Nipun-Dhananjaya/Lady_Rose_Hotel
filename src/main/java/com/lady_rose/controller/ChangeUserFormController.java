@@ -1,7 +1,11 @@
 package com.lady_rose.controller;
 
+import com.lady_rose.db.DBConnection;
+import com.lady_rose.model.ChangeUserModel;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
+
+import java.sql.SQLException;
 
 public class ChangeUserFormController {
     public TextField txtOldUserName;
@@ -15,20 +19,53 @@ public class ChangeUserFormController {
     public TextField txtNewUserName;
 
     public void escapeOldPwdOnAction(ActionEvent actionEvent) {
+        txtOldPwd.requestFocus();
     }
 
-    public void ChangeUserOnAction(ActionEvent actionEvent) {
+    public void ChangeUserOnAction(ActionEvent actionEvent) throws SQLException {
+        changeUser();
     }
 
     public void escapeNewUserNameOnAction(ActionEvent actionEvent) {
+        txtNewUserName.requestFocus();
     }
 
     public void escapeNewUserIdOnAction(ActionEvent actionEvent) {
+        txtNewUserEmpId.requestFocus();
     }
 
-    public void changeUserOnAction(ActionEvent actionEvent) {
+    public void changeUserOnAction(ActionEvent actionEvent) throws SQLException {
+        changeUser();
+    }
+
+    private void changeUser() throws SQLException {
+        try{
+            DBConnection.getInstance().getConnection().setAutoCommit(false);
+            if (ChangeUserModel.changeUser(txtOldUserName.getText(), txtOldPwd.getText(),txtNewUserEmpId.getText(),
+                    txtNewUserName.getText(),txtNewPwd.getText(),receptionistRdBtn.isSelected() ? "Receptionist":"Manager")) {
+                new Alert(Alert.AlertType.INFORMATION, "User Changed Successfully!").showAndWait();
+                DBConnection.getInstance().getConnection().commit();
+                resetPage();
+            }else{
+                new Alert(Alert.AlertType.WARNING, "Submitted details are incorrect!").showAndWait();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            DBConnection.getInstance().getConnection().rollback();
+        }finally{
+            DBConnection.getInstance().getConnection().setAutoCommit(true);
+        }
+    }
+
+    private void resetPage() {
+        txtOldUserName.setText("");
+        txtNewUserName.setText("");
+        txtNewPwd.setText("");
+        txtOldPwd.setText("");
+        txtNewUserEmpId.setText("");
     }
 
     public void escapeNewPwdOnAction(ActionEvent actionEvent) {
+        txtNewPwd.requestFocus();
     }
 }
