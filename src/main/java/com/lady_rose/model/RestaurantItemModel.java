@@ -1,6 +1,7 @@
 package com.lady_rose.model;
 
 import com.lady_rose.dto.Item;
+import com.lady_rose.dto.Restaurant_Item;
 import com.lady_rose.util.CrudUtil;
 
 import java.sql.ResultSet;
@@ -8,26 +9,18 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.lady_rose.model.EmployeeModel.stringLength;
+
 public class RestaurantItemModel {
-    public static List<Item> getAll() throws SQLException {
-        ResultSet resultSet= CrudUtil.execute("SELECT * FROM item ORDER BY item_code;");
-        List<Item> data = new ArrayList<>();
+    public static List<Restaurant_Item> getAll() throws SQLException {
+        ResultSet resultSet= CrudUtil.execute("SELECT * FROM restaurant_item ORDER BY Item_code;");
+        List<Restaurant_Item> data = new ArrayList<>();
 
         while (resultSet.next()) {
-            data.add(new Item(
+            data.add(new Restaurant_Item(
                     resultSet.getString(1),
-                    resultSet.getString(2)
-            ));
-        }
-        return data;
-    }
-    public static List<ItemDescrip> getAllDescription() throws SQLException {
-        ResultSet resultSet= CrudUtil.execute("SELECT description FROM item;");
-        List<ItemDescrip> data = new ArrayList<>();
-
-        while (resultSet.next()) {
-            data.add(new ItemDescrip(
-                    resultSet.getString(1)
+                    resultSet.getString(2),
+                    resultSet.getDouble(3)
             ));
         }
         return data;
@@ -36,7 +29,7 @@ public class RestaurantItemModel {
     public static String generateID() {
         ResultSet result=null;
         String[] idParts;
-        String id="Item-00000";
+        String id="I-00000";
         try {
             result= CrudUtil.execute("SELECT item_code FROM item ORDER BY item_code DESC LIMIT 1;");
             if(result.next()) {
@@ -45,9 +38,9 @@ public class RestaurantItemModel {
             idParts=id.split("-");
             int number=Integer.parseInt(idParts[1]);
             String num=setNextIdValue(++number);
-            return "Item-"+num;
+            return "I-"+num;
         } catch (SQLException e) {
-            return "Item-00000";
+            return "I-00000";
         }
     }
 
@@ -65,12 +58,9 @@ public class RestaurantItemModel {
         return String.valueOf(number);
     }
 
-    public static boolean addItem(String itemCode, String description) {
+    public static boolean addRestaurantItem(String itemCode, String description, String unitPrice) {
         try {
-            /*if (!(name.matches("^[a-zA-Z][ ]*$") | (!email.matches("^(.+)@(\\S+) $")) | (nic.matches()))){
-
-            }*/
-            boolean isAffected =CrudUtil.execute("INSERT INTO item VALUES(?,?);", itemCode,description);
+            boolean isAffected =CrudUtil.execute("INSERT INTO restaurant_item VALUES(?,?,?);", itemCode,description,Double.parseDouble(unitPrice));
             if (isAffected){
                 return true;
             }else{
@@ -81,23 +71,9 @@ public class RestaurantItemModel {
         }
     }
 
-    public static boolean updateItem(String itmCode, String description) {
+    public static boolean updateRestaurantItem(String itmCode, String description, String unitPrice) {
         try {
-            boolean isAffected =CrudUtil.execute("UPDATE item SET description=? WHERE item_code=?;", description, itmCode);
-            if (isAffected){
-                return true;
-            }else{
-                return false;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
-
-    public static boolean removeItem(String itemCode) {
-        try {
-            boolean isAffected = CrudUtil.execute("DELETE FROM item WHERE item_code=?;", itemCode);
+            boolean isAffected =CrudUtil.execute("UPDATE restaurant_item SET item_name=?,Unit_Price=?  WHERE Item_code=?;", description,Double.parseDouble(unitPrice), itmCode);
             if (isAffected){
                 return true;
             }else{
@@ -109,14 +85,29 @@ public class RestaurantItemModel {
         }
     }
 
-    public static List<Item> searchItem(String itemCode) throws SQLException {
+    public static boolean removeRestaurantItem(String itemCode) {
+        try {
+            boolean isAffected = CrudUtil.execute("DELETE FROM restaurant_item WHERE Item_code=?;", itemCode);
+            if (isAffected){
+                return true;
+            }else{
+                return false;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public static List<Restaurant_Item> searchItem(String itemCode) throws SQLException {
         ResultSet resultSet= CrudUtil.execute("SELECT * FROM item WHERE item_code=?;",itemCode);
-        List<Item> data = new ArrayList<>();
+        List<Restaurant_Item> data = new ArrayList<>();
 
         while (resultSet.next()) {
-            data.add(new Item(
+            data.add(new Restaurant_Item(
                     resultSet.getString(1),
-                    resultSet.getString(2)
+                    resultSet.getString(2),
+                    resultSet.getDouble(3)
             ));
         }
         return data;

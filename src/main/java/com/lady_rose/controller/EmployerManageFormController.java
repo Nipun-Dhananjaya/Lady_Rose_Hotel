@@ -66,30 +66,30 @@ public class EmployerManageFormController {
                     employer.getPId(),
                     employer.getName(),
                     employer.getNic(),
-                    employer.getAddress(),
                     employer.getEmailAddress(),
+                    employer.getAddress(),
                     employer.getPhoneNumber(),
-                    employer.getDob(),
-                    employer.getGender(),
                     employer.getPosition(),
-                    String.valueOf(employer.getSalary()),
+                    employer.getDob(),
                     employer.getEnteredDate(),
-                    employer.getResignedDate()
+                    employer.getResignedDate(),
+                    String.valueOf(employer.getSalary()),
+                    employer.getGender()
             ));
         }
         empTbl.setItems(obList);
     }
     void setCellValueFactory() {
-        columnId.setCellValueFactory(new PropertyValueFactory<>("empId"));
-        columnName.setCellValueFactory(new PropertyValueFactory<>("empName"));
+        columnId.setCellValueFactory(new PropertyValueFactory<>("pId"));
+        columnName.setCellValueFactory(new PropertyValueFactory<>("name"));
         columnNic.setCellValueFactory(new PropertyValueFactory<>("nic"));
         columnAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
-        columnEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
-        columnContact.setCellValueFactory(new PropertyValueFactory<>("Contact"));
-        columnDob.setCellValueFactory(new PropertyValueFactory<>("Dob"));
+        columnEmail.setCellValueFactory(new PropertyValueFactory<>("emailAddress"));
+        columnContact.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
+        columnDob.setCellValueFactory(new PropertyValueFactory<>("dob"));
         columnGender.setCellValueFactory(new PropertyValueFactory<>("gender"));
-        columnJobrole.setCellValueFactory(new PropertyValueFactory<>("jobRole"));
-        columnSalary.setCellValueFactory(new PropertyValueFactory<>("monthlySalary"));
+        columnJobrole.setCellValueFactory(new PropertyValueFactory<>("position"));
+        columnSalary.setCellValueFactory(new PropertyValueFactory<>("salary"));
         columnStartDate.setCellValueFactory(new PropertyValueFactory<>("enteredDate"));
         columnResignedDate.setCellValueFactory(new PropertyValueFactory<>("resignedDate"));
     }
@@ -121,7 +121,7 @@ public class EmployerManageFormController {
                 }
                 idTxt.setDisable(true);
             }else{
-                new Alert(Alert.AlertType.WARNING, "Employer ID Not Found!").showAndWait();
+                new Alert(Alert.AlertType.WARNING, "Employee ID Not Found!").showAndWait();
             }
             DBConnection.getInstance().getConnection().commit();
         } catch (SQLException e) {
@@ -148,12 +148,14 @@ public class EmployerManageFormController {
             DBConnection.getInstance().getConnection().setAutoCommit(false);
             boolean isAffected=false;
             if (isCorrectPattern()){
+                System.out.println("true");
                 isAffected= EmployeeModel.addEmployee(EmployeeModel.generateID(), nameTxt.getText(), nicTxt.getText(),
                         addressTxt.getText(), emailTxt.getText(), String.join(" , ", Employee.contact),dobDtPck.getValue(),
                         maleRdBtn.isSelected() ? "MALE" : "FEMALE", jobRolTxt.getText(),empSalary.getText(),strtDtPck.getValue(),endDtPkr.getValue());
             }
             if (isAffected) {
-                new Alert(Alert.AlertType.INFORMATION, "Employer Added!").showAndWait();
+                new Alert(Alert.AlertType.INFORMATION, "Employee Added!").showAndWait();
+                resetPage();
                 DBConnection.getInstance().getConnection().commit();
             } else {
                 new Alert(Alert.AlertType.WARNING, "Re-Check Submitted Details!").showAndWait();
@@ -210,6 +212,7 @@ public class EmployerManageFormController {
                 new Alert(Alert.AlertType.INFORMATION, "Employer Updated!").showAndWait();
                 DBConnection.getInstance().getConnection().commit();
                 idTxt.setDisable(false);
+                resetPage();
             } else {
                 new Alert(Alert.AlertType.WARNING, "Re-Check Submitted Details!").showAndWait();
             }
@@ -224,5 +227,19 @@ public class EmployerManageFormController {
     public void setTxtBxValueOnAction(ActionEvent actionEvent) {
         contactTxt.setText(String.valueOf(contactCmbBx.getSelectionModel().getSelectedItem()));
         con = contactTxt.getText();
+    }
+    public void resetPage() throws SQLException {
+        idTxt.setText("");
+        nameTxt.setText("");
+        nicTxt.setText("");
+        emailTxt.setText("");
+        addressTxt.setText("");
+        contactTxt.setText("");
+        emailTxt.setText("");
+        jobRolTxt.setText("");
+        empSalary.setText("");
+        Employee.contact.clear();
+        setCellValueFactory();
+        getAllEmployers();
     }
 }

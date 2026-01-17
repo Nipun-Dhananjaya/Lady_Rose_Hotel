@@ -1,8 +1,8 @@
 package com.lady_rose.controller;
 
 import com.lady_rose.db.DBConnection;
-import com.lady_rose.model.Employee;
-import com.lady_rose.model.Supplier;
+import com.lady_rose.dto.Supplier;
+import com.lady_rose.model.SupplierModel;
 import com.lady_rose.regex.RegExPattern;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
@@ -32,7 +32,7 @@ public class SupplierManagerFormController {
             DBConnection.getInstance().getConnection().setAutoCommit(false);
             boolean isAffected=false;
             if (isCorrectPattern()){
-                isAffected= Supplier.addSupplier(supplierTxt.getId(),snameTxt.getText(),saddrsTxt.getText(),smilTxt.getText(),scontctTxt.getText(),sitemTxt.getText(),sDteTxt.getValue(),eDtTxt.getValue());
+                isAffected= SupplierModel.addSupplier(supplierTxt.getId(),snameTxt.getText(),saddrsTxt.getText(),smilTxt.getText(),scontctTxt.getText(),sitemTxt.getText(),sDteTxt.getValue(),eDtTxt.getValue());
             }
             if (isAffected) {
                 new Alert(Alert.AlertType.INFORMATION, "Supplier Added!").showAndWait();
@@ -46,7 +46,7 @@ public class SupplierManagerFormController {
         }finally{
             DBConnection.getInstance().getConnection().setAutoCommit(true);
         }
-        }
+    }
     private boolean isCorrectPattern(){
         if(RegExPattern.getIdPattern().matcher(supplierTxt.getId()).matches() && RegExPattern.getNamePattern().matcher(snameTxt.getText()).matches() && RegExPattern.getAddressPattern().matcher(saddrsTxt.getText()).matches() && RegExPattern.getEmailPattern().matcher(smilTxt.getText()).matches()){
             return true;
@@ -59,7 +59,7 @@ public class SupplierManagerFormController {
             DBConnection.getInstance().getConnection().setAutoCommit(false);
             boolean isAffected=false;
             if (isCorrectPattern()){
-                isAffected= Supplier.updateSupplier(supplierTxt.getId(),snameTxt.getText(),saddrsTxt.getText(),smilTxt.getText(),scontctTxt.getText(),sitemTxt.getText(),sDteTxt.getValue(),eDtTxt.getValue());
+                isAffected= SupplierModel.updateSupplier(supplierTxt.getId(),snameTxt.getText(),saddrsTxt.getText(),smilTxt.getText(),scontctTxt.getText(),sitemTxt.getText(),sDteTxt.getValue(),eDtTxt.getValue());
             }
 
             if (isAffected) {

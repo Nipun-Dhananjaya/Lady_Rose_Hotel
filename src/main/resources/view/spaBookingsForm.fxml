@@ -32,12 +32,12 @@
       <Button fx:id="btnSave" layoutX="826.0" layoutY="285.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="97.0" style="-fx-background-color: #25b454;" text="Save" textFill="WHITE" />
       <Button fx:id="btnUpdate" layoutX="972.0" layoutY="285.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="104.0" style="-fx-background-color: #2530b4;" text="Update" textFill="WHITE" />
       <ComboBox fx:id="cmbPackage" layoutX="815.0" layoutY="225.0" prefHeight="26.0" prefWidth="330.0" style="-fx-border-color: #c0392b;" />
-      <TableView layoutX="13.0" layoutY="332.0" prefHeight="351.0" prefWidth="1322.0">
+      <TableView layoutX="186.0" layoutY="332.0" prefHeight="351.0" prefWidth="980.0">
         <columns>
-          <TableColumn fx:id="columnbookingid" prefWidth="75.0" text="Booking ID" />
-          <TableColumn fx:id="columnbookingdate" prefWidth="106.20002746582031" text="Booking Date" />
-            <TableColumn fx:id="columnbookeddate" prefWidth="106.20002746582031" text="Booked Date" />
-            <TableColumn fx:id="columnpackage" prefWidth="106.20002746582031" text="Package" />
+          <TableColumn prefWidth="75.0" text="Booking ID" />
+          <TableColumn prefWidth="106.20002746582031" text="Booking Date" />
+            <TableColumn prefWidth="106.20002746582031" text="Booked Date" />
+            <TableColumn prefWidth="106.20002746582031" text="Package" />
         </columns>
       </TableView>
    </children>

@@ -3,25 +3,15 @@ package com.lady_rose.dto;
 public class Item {
     private String item_ID;
     private String name;
-    private double qty;
-    private double itemUnitPrice;
-    private String stockedDate;
-    private String orderedDate;
-    private String preOrderDate;
-    private double preOrderQty;
+    private double qtyOnHand;
 
     public Item(){
     }
 
-    public Item(String item_ID, String name, double qty, double itemUnitPrice, String stockedDate, String orderedDate, String preOrderDate, double preOrderQty){
+    public Item(String item_ID, String name, double qtyOnHand){
         this.item_ID=item_ID;
         this.name=name;
-        this.qty=qty;
-        this.itemUnitPrice=itemUnitPrice;
-        this.stockedDate=stockedDate;
-        this.orderedDate=orderedDate;
-        this.preOrderDate=preOrderDate;
-        this.preOrderQty=preOrderQty;
+        this.qtyOnHand=qtyOnHand;
     }
 
     public String getItem_ID() {
@@ -40,51 +30,11 @@ public class Item {
         this.name = name;
     }
 
-    public double getQty() {
-        return qty;
+    public double getQtyOnHand() {
+        return qtyOnHand;
     }
 
-    public void setQty(double qty) {
-        this.qty = qty;
-    }
-
-    public double getItemUnitPrice() {
-        return itemUnitPrice;
-    }
-
-    public void setItemUnitPrice(double itemUnitPrice) {
-        this.itemUnitPrice = itemUnitPrice;
-    }
-
-    public String getStockedDate() {
-        return stockedDate;
-    }
-
-    public void setStockedDate(String stockedDate) {
-        this.stockedDate = stockedDate;
-    }
-
-    public String getOrderedDate() {
-        return orderedDate;
-    }
-
-    public void setOrderedDate(String orderedDate) {
-        this.orderedDate = orderedDate;
-    }
-
-    public String getPreOrderDate() {
-        return preOrderDate;
-    }
-
-    public void setPreOrderDate(String preOrderDate) {
-        this.preOrderDate = preOrderDate;
-    }
-
-    public double getPreOrderQty() {
-        return preOrderQty;
-    }
-
-    public void setPreOrderQty(double preOrderQty) {
-        this.preOrderQty = preOrderQty;
+    public void setQtyOnHand(double qtyOnHand) {
+        this.qtyOnHand = qtyOnHand;
     }
 }
