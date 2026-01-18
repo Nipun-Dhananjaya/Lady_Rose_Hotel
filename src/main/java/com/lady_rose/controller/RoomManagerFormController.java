@@ -30,6 +30,8 @@ public class RoomManagerFormController {
     public TableColumn columnCategory;
     public TableColumn columnBedCount;
     public TableColumn columnView;
+    public Button addbtn;
+    public Button updtbtn;
 
     public void initialize() throws SQLException {
         setCellValueFactory();
@@ -51,10 +53,10 @@ public class RoomManagerFormController {
         roomTable.setItems(obList);
     }
     void setCellValueFactory() {
-        columnRoomNo.setCellValueFactory(new PropertyValueFactory<>("Room no"));
-        columnCategory.setCellValueFactory(new PropertyValueFactory<>("category"));
+        columnRoomNo.setCellValueFactory(new PropertyValueFactory<>("R_No"));
+        columnCategory.setCellValueFactory(new PropertyValueFactory<>("Category"));
         columnView.setCellValueFactory(new PropertyValueFactory<>("view"));
-        columnBedCount.setCellValueFactory(new PropertyValueFactory<>("bed count"));
+        columnBedCount.setCellValueFactory(new PropertyValueFactory<>("bedCount"));
     }
 
     public void idSearchOnAction(ActionEvent actionEvent) throws SQLException{
@@ -141,13 +143,6 @@ public class RoomManagerFormController {
             DBConnection.getInstance().getConnection().setAutoCommit(true);
         }
     }
-
-    public void setTxtBxCatgyValueOnAction(ActionEvent actionEvent) {
-    }
-
-    public void setTxtBxViewValueOnAction(ActionEvent actionEvent) {
-    }
-
 
 
 

@@ -18,7 +18,6 @@ import java.util.List;
 
 
 public class CustomerFormController {
-    public AnchorPane customerRoot;
     public TextField customerIdTxt;
     public TextField customerNameTxt;
     public TextField nicTxt;
@@ -43,22 +42,17 @@ public class CustomerFormController {
     public TableColumn columnContact;
     public TableColumn columnGender;
     public TableColumn columnCategory;
-
-
-    // Initialize categories (you can load from DB later)
-    private void initializeCategories() {
-        categoryChoiceBox.getItems().addAll("Regular", "VIP", "Corporate", "Guest");
-        categoryChoiceBox.setValue("Regular");
-    }
+    public AnchorPane custRoot;
 
     public void initialize() throws SQLException {
-        // Link radio buttons
         ToggleGroup genderGroup = new ToggleGroup();
         maleRdBtn.setToggleGroup(genderGroup);
         femaleRdBtn.setToggleGroup(genderGroup);
 
         setCellValueFactory();
         getAllEmployers();
+        categoryChoiceBox.getItems().addAll("Regular", "VIP", "Corporate", "Guest");
+        categoryChoiceBox.setValue("Regular");
     }
 
     private void getAllEmployers() throws SQLException {

@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="559.0" prefWidth="590.0" style="-fx-border-color: brown; -fx-border-radius: 0;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lady_rose.controller.ChangeRoomPacksFormController">
+<AnchorPane fx:id="changeRoomPackRoot" prefHeight="559.0" prefWidth="590.0" style="-fx-border-color: brown; -fx-border-radius: 0;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lady_rose.controller.ChangeRoomPacksFormController">
     <children>
         <TextField fx:id="txtNewPrice" layoutX="146.0" layoutY="337.0" onAction="#changePriceOnAction" prefHeight="34.0" prefWidth="294.0" promptText="Enter New Price..." style="-fx-border-color: blue;">
             <cursor>

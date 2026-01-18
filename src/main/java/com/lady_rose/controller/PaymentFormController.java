@@ -1,8 +1,9 @@
 package com.lady_rose.controller;
 
 import com.lady_rose.db.DBConnection;
+import com.lady_rose.dto.Payment;
+import com.lady_rose.dto.TM.PaymentTM;
 import com.lady_rose.model.PaymentModel;
-import com.lady_rose.regex.RegExPattern;
 import javafx.collections.FXCollections;
 
 import javafx.collections.ObservableList;
@@ -11,11 +12,9 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import com.lady_rose.dto.RoomBookings;
-import com.lady_rose.dto.SpaBookings;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.util.List;
 
 public class PaymentFormController {
     public AnchorPane paymentRoot;
@@ -48,6 +47,10 @@ public class PaymentFormController {
     public TableColumn colMethod;
     public TableColumn colAmount;
     public TableColumn colStatus;
+    public TextField payIdTxt;
+    public TextField custNameTxt;
+    public TextField custIdTxt;
+    public DatePicker payDateDtPckr;
 
     private String bookingType; // "ROOM" or "SPA"
 
@@ -76,15 +79,15 @@ public class PaymentFormController {
     }
 
     private void loadPaymentTable() throws SQLException {
-        if ("ROOM".equals(bookingType)) {
-            ObservableList<RoomBookings> list = FXCollections.observableArrayList();
-            list.addAll(PaymentModel.getAllRoomBookings());
-            paymentTbl.setItems(list);
+        ObservableList<PaymentTM> list = FXCollections.observableArrayList();
+        list.addAll(PaymentModel.getAllRoomBookings());
+        paymentTbl.setItems(list);
+        /*if ("ROOM".equals(bookingType)) {
         } else if ("SPA".equals(bookingType)) {
             ObservableList<SpaBookings> list = FXCollections.observableArrayList();
             list.addAll(PaymentModel.getAllSpaBookings());
             paymentTbl.setItems(list);
-        }
+        }*/
     }
     public void idSearchOnAction(ActionEvent actionEvent) throws SQLException {
         try {
@@ -94,37 +97,37 @@ public class PaymentFormController {
                 new Alert(Alert.AlertType.WARNING, "Please enter Booking ID!").showAndWait();
                 return;
             }
+            PaymentTM rb = PaymentModel.getRoomBookingById(bookingId);
+            if (rb != null) {
+                customerIdTxt.setText(rb.getCustId());
 
-            if ("ROOM".equals(bookingType)) {
-                RoomBookings rb = PaymentModel.getRoomBookingById(bookingId);
-                if (rb != null) {
-                    customerIdTxt.setText(rb.getCustomerId());
+                amountTxt.setText(rb.getAmount());
 
-                    amountTxt.setText(rb.getAmount());
-
-                    // Set payment method
-                    if ("Cash".equals(rb.getPaymentMethod())) {
-                        cashRdBtn.setSelected(true);
-                    } else {
-                        cardRdBtn.setSelected(true);
-                    }
-
-                    // Set status
-                    if ("Paid".equals(rb.getPaymentStatus())) {
-                        paidRdBtn.setSelected(true);
-                    } else {
-                        pendingRdBtn.setSelected(true);
-                    }
-
-                    // Set date
-                    if (rb.getPaymentDate() != null && !rb.getPaymentDate().isEmpty()) {
-                        paymentDateDtpkr.setValue(LocalDate.parse(rb.getPaymentDate()));
-                    }
-
-                    bookingIdTxt.setDisable(true); // lock ID
+                // Set payment method
+                if ("Cash".equals(rb.getPaymentMethod())) {
+                    cashRdBtn.setSelected(true);
                 } else {
-                    new Alert(Alert.AlertType.WARNING, "Room Booking not found!").showAndWait();
+                    cardRdBtn.setSelected(true);
                 }
+
+                // Set status
+                if ("Paid".equals(rb.getPaymentStatus())) {
+                    paidRdBtn.setSelected(true);
+                } else {
+                    pendingRdBtn.setSelected(true);
+                }
+
+                // Set date
+                if (rb.getPaymentDate() != null && !rb.getPaymentDate().isEmpty()) {
+                    paymentDateDtpkr.setValue(LocalDate.parse(rb.getPaymentDate()));
+                }
+
+                bookingIdTxt.setDisable(true); // lock ID
+            } else {
+                new Alert(Alert.AlertType.WARNING, "Room Booking not found!").showAndWait();
+            }
+
+            /*if ("ROOM".equals(bookingType)) {
             }
             else if ("SPA".equals(bookingType)) {
                 SpaBookings sb = PaymentModel.getSpaBookingById(bookingId);
@@ -153,7 +156,7 @@ public class PaymentFormController {
                 } else {
                     new Alert(Alert.AlertType.WARNING, "Spa Booking not found!").showAndWait();
                 }
-            }
+            }*/
             DBConnection.getInstance().getConnection().commit();
         } catch (Exception e) {
             e.printStackTrace();
@@ -185,13 +188,12 @@ public class PaymentFormController {
             String method = cashRdBtn.isSelected() ? "Cash" : "Card";
             String status = paidRdBtn.isSelected() ? "Paid" : "Pending";
 
-            boolean success = false;
+            boolean success = PaymentModel.updateRoomBookingPayment(bookingId,PaymentModel.generateID(), amount, paymentDate, method, status);;
 
-            if ("ROOM".equals(bookingType)) {
-                success = PaymentModel.updateRoomBookingPayment(bookingId, amount, paymentDate, method, status);
-            } else if ("SPA".equals(bookingType)) {
+            /*if ("ROOM".equals(bookingType)) {
+                } else if ("SPA".equals(bookingType)) {
                 success = PaymentModel.updateSpaBookingPayment(bookingId, amount, paymentDate, method, status);
-            }
+            }*/
 
             if (success) {
                 String message;
@@ -259,15 +261,14 @@ public class PaymentFormController {
         }
     }
     void setCellValueFactory() {
-        if ("ROOM".equals(bookingType)) {
-            colPaymentId.setCellValueFactory(new PropertyValueFactory<>("bookingID"));
-            colBookingId.setCellValueFactory(new PropertyValueFactory<>("bookingID"));
-            colCustomerId.setCellValueFactory(new PropertyValueFactory<>("customerId"));
-            colCustomerName.setCellValueFactory(new PropertyValueFactory<>("customerName"));
-            colPaymentDate.setCellValueFactory(new PropertyValueFactory<>("paymentDate"));
-            colMethod.setCellValueFactory(new PropertyValueFactory<>("paymentMethod"));
-            colAmount.setCellValueFactory(new PropertyValueFactory<>("amount"));
-            colStatus.setCellValueFactory(new PropertyValueFactory<>("paymentStatus"));
+        colBookingId.setCellValueFactory(new PropertyValueFactory<>("bookingID"));
+        colCustomerId.setCellValueFactory(new PropertyValueFactory<>("customerId"));
+        colCustomerName.setCellValueFactory(new PropertyValueFactory<>("customerName"));
+        colPaymentDate.setCellValueFactory(new PropertyValueFactory<>("paymentDate"));
+        colMethod.setCellValueFactory(new PropertyValueFactory<>("paymentMethod"));
+        colAmount.setCellValueFactory(new PropertyValueFactory<>("amount"));
+        colStatus.setCellValueFactory(new PropertyValueFactory<>("paymentStatus"));
+        /*if ("ROOM".equals(bookingType)) {
 
 
 
@@ -281,6 +282,6 @@ public class PaymentFormController {
             colMethod.setCellValueFactory(new PropertyValueFactory<>("paymentMethod"));
             colAmount.setCellValueFactory(new PropertyValueFactory<>("amount"));
             colStatus.setCellValueFactory(new PropertyValueFactory<>("paymentStatus"));
-        }
+        }*/
     }
 }

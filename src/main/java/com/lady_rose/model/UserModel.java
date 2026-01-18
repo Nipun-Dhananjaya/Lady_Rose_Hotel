@@ -15,10 +15,10 @@ public class UserModel {
         this.Password = Password;
     }
 
-    public static boolean IsCorrect(String userName, String password) {
+    public static boolean IsCorrect(String userName, String password,String position) {
         ResultSet result = null;
         try {
-            result = CrudUtil.execute("SELECT username,password FROM user WHERE username=? AND password=?;", userName, password);
+            result = CrudUtil.execute("SELECT username,password,position FROM user WHERE username=? AND password=? AND position=?;", userName, password,position);
             if (result.next()) {
                 user = new UserModel(result.getString(1), result.getString(2));
             }else {

@@ -1,9 +1,7 @@
 package com.lady_rose.controller;
 
 import com.lady_rose.db.DBConnection;
-import com.lady_rose.dto.Employee;
 import com.lady_rose.dto.Supplier;
-import com.lady_rose.model.EmployeeModel;
 import com.lady_rose.model.SupplierModel;
 import com.lady_rose.regex.RegExPattern;
 import javafx.collections.FXCollections;
@@ -63,14 +61,14 @@ public class SupplierManagerFormController {
         supplierTable.setItems(obList);
     }
     void setCellValueFactory() {
-        columnID.setCellValueFactory(new PropertyValueFactory<>("sId"));
+        columnID.setCellValueFactory(new PropertyValueFactory<>("s_ID"));
         columnName.setCellValueFactory(new PropertyValueFactory<>("name"));
         columnAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
-        columnEmail.setCellValueFactory(new PropertyValueFactory<>("emailAddress"));
-        columnContact.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
+        columnEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        columnContact.setCellValueFactory(new PropertyValueFactory<>("contact"));
         columnItem.setCellValueFactory(new PropertyValueFactory<>("item"));
-        columnC_Start_date.setCellValueFactory(new PropertyValueFactory<>("constract start date"));
-        columnC_End_date.setCellValueFactory(new PropertyValueFactory<>("constract end date"));
+        columnC_Start_date.setCellValueFactory(new PropertyValueFactory<>("conStart_Date"));
+        columnC_End_date.setCellValueFactory(new PropertyValueFactory<>("conEnd_Date"));
     }
 
     public void idSearchOnAction(ActionEvent actionEvent) throws SQLException {
@@ -89,7 +87,7 @@ public class SupplierManagerFormController {
                 }
                 supplierTxt.setDisable(true);
             }else{
-                new Alert(Alert.AlertType.WARNING, "Employee ID Not Found!").showAndWait();
+                new Alert(Alert.AlertType.WARNING, "Supplier ID Not Found!").showAndWait();
             }
             DBConnection.getInstance().getConnection().commit();
         } catch (SQLException e) {

@@ -18,8 +18,10 @@ public class EmployeeModel {
             boolean isAffected = CrudUtil.execute("INSERT INTO employee VALUES(?,?,?,?,?,?,?,?,?,?,?,?);", ID, nic, name,
                     gender,address, email, contacts, dob, jobRole, salary, serviceStrtDate, serviceEndDate);
             if (isAffected){
+                System.out.println("true2");
                 return true;
             }else{
+                System.out.println("false2");
                 return false;
             }
         } catch (SQLException e) {

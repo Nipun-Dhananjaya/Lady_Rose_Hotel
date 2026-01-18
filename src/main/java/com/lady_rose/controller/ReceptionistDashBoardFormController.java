@@ -58,6 +58,11 @@ public class ReceptionistDashBoardFormController {
         homeRoot.getChildren().add(FXMLLoader.load(getClass().getResource("/view/roomBookingsForm.fxml")));
     }
 
+    public void showSpaBookingManageOnAction(ActionEvent actionEvent) throws IOException {
+        homeRoot.getChildren().clear();
+        homeRoot.getChildren().add(FXMLLoader.load(getClass().getResource("/view/spaBookingsForm.fxml")));
+    }
+
     public void loadProfileSelectionOnAction(ActionEvent actionEvent) throws IOException {
         AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/selectProfileForm.fxml"));
         Stage stage = (Stage) root.getScene().getWindow();

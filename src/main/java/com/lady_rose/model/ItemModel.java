@@ -12,7 +12,7 @@ import static com.lady_rose.model.EmployeeModel.stringLength;
 
 public class ItemModel {
     public static List<Item> getAll() throws SQLException {
-        ResultSet resultSet= CrudUtil.execute("SELECT * FROM store ORDER BY Item_ID;");
+        ResultSet resultSet= CrudUtil.execute("SELECT * FROM store ORDER BY Item_code;");
         List<Item> data = new ArrayList<>();
 
         while (resultSet.next()) {
@@ -30,7 +30,7 @@ public class ItemModel {
         String[] idParts;
         String id="Item-00000";
         try {
-            result= CrudUtil.execute("SELECT Item_ID FROM store ORDER BY Item_ID DESC LIMIT 1;");
+            result= CrudUtil.execute("SELECT Item_code FROM store ORDER BY Item_code DESC LIMIT 1;");
             if(result.next()) {
                 id=result.getString(1);
             }
@@ -72,7 +72,7 @@ public class ItemModel {
 
     public static boolean updateItem(String itmCode, String description,double qty) {
         try {
-            boolean isAffected =CrudUtil.execute("UPDATE store SET Name=?,qtyOnHand=? WHERE Item_ID=?;", description,qty, itmCode);
+            boolean isAffected =CrudUtil.execute("UPDATE store SET Name=?,qtyOnHand=? WHERE Item_code=?;", description,qty, itmCode);
             if (isAffected){
                 return true;
             }else{
@@ -86,7 +86,7 @@ public class ItemModel {
 
     public static boolean removeItem(String itemCode) {
         try {
-            boolean isAffected =CrudUtil.execute("DELETE FROM store WHERE item_ID=?;", itemCode);
+            boolean isAffected =CrudUtil.execute("DELETE FROM store WHERE Item_code=?;", itemCode);
             if (isAffected){
                 return true;
             }else{
@@ -99,7 +99,7 @@ public class ItemModel {
     }
 
     public static List<Item> searchItem(String itemCode) throws SQLException {
-        ResultSet resultSet= CrudUtil.execute("SELECT * FROM store WHERE item_ID=?;",itemCode);
+        ResultSet resultSet= CrudUtil.execute("SELECT * FROM store WHERE Item_code=?;",itemCode);
         List<Item> data = new ArrayList<>();
 
         while (resultSet.next()) {

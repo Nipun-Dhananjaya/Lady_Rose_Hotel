@@ -39,14 +39,14 @@
                   <Font name="Comic Sans MS" size="12.0" />
                </font>
             </Label>
-            <TextField layoutX="111.0" layoutY="144.0" prefHeight="25.0" prefWidth="369.0" promptText="Enter your Username..." />
+            <TextField fx:id="usernameTxt" layoutX="111.0" layoutY="144.0" prefHeight="25.0" prefWidth="369.0" promptText="Enter your Username..." />
             <Label layoutX="113.0" layoutY="194.0" text="Password:">
                <font>
                   <Font name="Comic Sans MS" size="12.0" />
                </font>
             </Label>
-            <TextField layoutX="111.0" layoutY="224.0" prefHeight="25.0" prefWidth="369.0" promptText="Enter your Password..." />
-            <Button fx:id="lgnBtn" layoutX="254.0" layoutY="275.0" mnemonicParsing="false" onAction="#login" prefHeight="38.0" prefWidth="83.0" stylesheets="@../style/btnStyles.css" text="Login" textFill="#faf6f6">
+            <TextField fx:id="passwordTxt" layoutX="111.0" layoutY="224.0" prefHeight="25.0" prefWidth="369.0" promptText="Enter your Password..." />
+            <Button fx:id="lgnBtn" layoutX="254.0" layoutY="275.0" mnemonicParsing="false" onAction="#loginOnAction" prefHeight="38.0" prefWidth="83.0" stylesheets="@../style/btnStyles.css" text="Login" textFill="#faf6f6">
                <font>
                   <Font name="Comic Sans MS" size="18.0" />
                </font>

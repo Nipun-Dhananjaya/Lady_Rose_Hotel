@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="722.0" prefWidth="1298.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lady_rose.controller.RoomManagerFormController">
+<AnchorPane prefHeight="722.0" prefWidth="1298.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lady_rose.controller.RoomManagerFormController">
    <children>
       <Pane prefHeight="722.0" prefWidth="1298.0">
          <children>
@@ -18,7 +25,7 @@
             <TextField fx:id="roomNoTxt" layoutX="252.0" layoutY="96.0" prefHeight="25.0" prefWidth="295.0" promptText="Room number" style="-fx-border-color: #964B00; -fx-border-radius: 25; -fx-background-radius: 25;" />
             <Label layoutX="252.0" layoutY="137.0" text="Room Category      :" />
             <ComboBox fx:id="roomCtgyCmbBx" editable="true" layoutX="252.0" layoutY="154.0" prefWidth="150.0" style="-fx-border-color: #964B00;" visibleRowCount="5" />
-            <TableView layoutX="45.0" layoutY="242.0" prefHeight="469.0" prefWidth="1202.0">
+            <TableView fx:id="roomTable" layoutX="45.0" layoutY="242.0" prefHeight="469.0" prefWidth="1202.0">
               <columns>
                 <TableColumn fx:id="columnRoomNo" prefWidth="206.0" text="Room_No" />
                 <TableColumn fx:id="columnCategory" minWidth="0.0" prefWidth="346.0" text="Room_Category" />
@@ -30,8 +37,8 @@
             <TextField fx:id="bedCountTxt" layoutX="717.0" layoutY="96.0" prefHeight="25.0" prefWidth="295.0" promptText="Bed Count" style="-fx-border-color: #964B00; -fx-border-radius: 25; -fx-background-radius: 25;" />
             <Label layoutX="717.0" layoutY="137.0" text="Room View  :" />
             <ComboBox fx:id="roomViewCmbBx" editable="true" layoutX="717.0" layoutY="154.0" prefWidth="150.0" style="-fx-border-color: #964B00;" visibleRowCount="5" />
-            <Button fx:id="addbtn" layoutX="726.0" layoutY="201.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="105.0" style="-fx-background-color: #4CAF50; -fx-border-color: #000000;" text="Add" />
-            <Button fx:id="updtbtn" layoutX="847.0" layoutY="201.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="105.0" style="-fx-background-color: #0D2EFF; -fx-border-color: #000000;" text="Update" />
+            <Button fx:id="addbtn" layoutX="726.0" layoutY="201.0" mnemonicParsing="false" onAction="#addRoomOnAction" prefHeight="25.0" prefWidth="105.0" style="-fx-background-color: #4CAF50; -fx-border-color: #000000;" text="Add" />
+            <Button fx:id="updtbtn" layoutX="847.0" layoutY="201.0" mnemonicParsing="false" onAction="#updateRoomOnAction" prefHeight="25.0" prefWidth="105.0" style="-fx-background-color: #0D2EFF; -fx-border-color: #000000;" text="Update" />
          </children>
       </Pane>
    </children>

@@ -1,44 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="716.0" prefWidth="1362.4" style="-fx-background-color: #D9F2F9;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lady_rose.controller.SpaBookingsFormController">
+<AnchorPane prefHeight="716" prefWidth="1362.4" style="-fx-background-color: #D9F2F9;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lady_rose.controller.SpaBookingsFormController">
    <children>
-      <Label layoutX="681.0" layoutY="14.0" prefHeight="51.0" prefWidth="275.0" text="Spa Details" textFill="#ff1212">
+      <Label layoutX="620.0" layoutY="340.0" prefHeight="35.0" prefWidth="121.0" text="Developing" textFill="#ff1212">
          <font>
-            <Font name="Comic Sans MS Bold" size="36.0" />
+            <Font name="Comic Sans MS Bold" size="24.0" />
          </font></Label>
-      <Label layoutX="336.0" layoutY="199.0" prefHeight="18.0" prefWidth="146.0" text="Booking Date : ">
-         <font>
-            <Font size="14.0" />
-         </font></Label>
-      <DatePicker fx:id="dpBookingDate" layoutX="336.0" layoutY="225.0" prefHeight="26.0" prefWidth="329.0" style="-fx-border-color: #c0392b;" />
-      <Label layoutX="815.0" layoutY="125.0" prefHeight="18.0" prefWidth="265.0" text="Booked Date : ">
-         <font>
-            <Font size="14.0" />
-         </font></Label>
-      <DatePicker fx:id="dpBookedDate" layoutX="815.0" layoutY="149.0" prefHeight="26.0" prefWidth="330.0" style="-fx-border-color: #c0392b;" />
-      <Label layoutX="343.0" layoutY="125.0" prefHeight="18.0" prefWidth="209.0" text="Booking ID : ">
-         <font>
-            <Font size="14.0" />
-         </font></Label>
-      <TextField fx:id="txtBookingId" layoutX="336.0" layoutY="149.0" prefHeight="26.0" prefWidth="330.0" style="-fx-border-color: #073a40; -fx-background-radius: 20; -fx-border-radius: 20;" />
-      <Label layoutX="815.0" layoutY="199.0" prefHeight="18.0" prefWidth="313.0" text="Package : ">
-         <font>
-            <Font size="14.0" />
-         </font></Label>
-      <Button fx:id="btnSave" layoutX="826.0" layoutY="285.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="97.0" style="-fx-background-color: #25b454;" text="Save" textFill="WHITE" />
-      <Button fx:id="btnUpdate" layoutX="972.0" layoutY="285.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="104.0" style="-fx-background-color: #2530b4;" text="Update" textFill="WHITE" />
-      <ComboBox fx:id="cmbPackage" layoutX="815.0" layoutY="225.0" prefHeight="26.0" prefWidth="330.0" style="-fx-border-color: #c0392b;" />
-      <TableView layoutX="186.0" layoutY="332.0" prefHeight="351.0" prefWidth="980.0">
-        <columns>
-          <TableColumn prefWidth="75.0" text="Booking ID" />
-          <TableColumn prefWidth="106.20002746582031" text="Booking Date" />
-            <TableColumn prefWidth="106.20002746582031" text="Booked Date" />
-            <TableColumn prefWidth="106.20002746582031" text="Package" />
-        </columns>
-      </TableView>
    </children>
 </AnchorPane>
